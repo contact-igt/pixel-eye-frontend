@@ -1,0 +1,105 @@
+.bannerContainer {
+  padding: 5rem 0;
+  background: linear-gradient(to right, #eef3f7, #f8f9fa);
+}
+
+.bannerContent h1 {
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: #153b56;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 1.3rem;
+  color: #6FA1BB;
+  margin-bottom: 1.5rem;
+}
+
+.ctaContainer {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+  padding: 1.5rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.appointmentText {
+  color: #153b56;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.formContainer {
+  display: flex;
+  gap: 1rem;
+}
+
+.formContainer input {
+  flex-grow: 1;
+  padding: 0.85rem;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.statsContainer {
+  display: flex;
+  gap: 2.3rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+
+.statItem {
+  text-align: center;
+  width: 160px;
+}
+
+.statValue {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #153b56;
+  margin: 0;
+}
+
+.statLabel {
+  font-size: 1.1rem;
+  color: #23527c;
+  margin: 0;
+}
+
+.bannerImage {
+  max-width: 100%;
+  height: 480px;
+  border-radius: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 1400px) {
+  .bannerContent h1 { font-size: 2.8rem; }
+}
+
+@media (max-width: 1200px) {
+  .bannerContent h1 { font-size: 2.5rem; }
+  .statsContainer { flex-wrap: wrap; }
+}
+
+@media (max-width: 992px) {
+  .bannerContainer { text-align: center; }
+  .statsContainer { justify-content: center; }
+  .formContainer { flex-direction: column; }
+}
+
+@media (max-width: 768px) {
+  .bannerContent h1 { font-size: 2rem; }
+  .subtitle { font-size: 1rem; }
+}
+
+@media (max-width: 576px) {
+  .bannerContent h1 { font-size: 1.8rem; }
+}
