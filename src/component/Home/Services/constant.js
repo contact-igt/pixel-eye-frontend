@@ -32,7 +32,7 @@ export const servicesData = [
     description:
       "Protect your vision with early detection and advanced glaucoma care. We offer laser, medication, and microsurgical options to control eye pressure and prevent optic nerve damage.",
     image: "/assets/glaucomaService.jpg",
-    link:"https://retina.pixeleyehospitals.com/",
+    link:"https://glaucoma.pixeleyehospitals.com/",
     newlyLaunched: false,
   },
 ];
