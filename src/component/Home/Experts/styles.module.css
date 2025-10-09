@@ -114,10 +114,42 @@
   .sectionTitle {
     font-size: 1.8rem;
   }
+
+  .statItem {
+    font-size: 0.8rem;
+  }
+
+  .doctorImage {
+    width: 120px;
+    height: 160px;
+  }
 }
 
 @media (width < 576px) {
   .sectionTitle {
     font-size: 1.6rem;
   }
+}
+
+@media (width < 425px) {
+
+  .doctorCard {
+    display: block;
+    text-align: center;
+    padding-top: 20px;
+  }
+
+  .cardContent button {
+    width: 100% !important;
+  }
+
+  .doctorStats{
+    justify-content: center;
+  }
+
+  .doctorName , .doctorQualifications{
+    text-align: center;
+  }
+
+
 }

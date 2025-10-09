@@ -3,8 +3,8 @@ import Slider from "react-slick";
 import styles from "./styles.module.css";
 import { excellenceData } from "./constant";
 import Button from "@/common/Button";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
 
 const Excellence = ({ handleTogglecontactForm }) => {
   const settings = {
@@ -14,11 +14,30 @@ const Excellence = ({ handleTogglecontactForm }) => {
     slidesToShow: 5,
     slidesToScroll: 1,
     responsive: [
-      { breakpoint: 1400, settings: { slidesToShow: 5 } },
-      { breakpoint: 1200, settings: { slidesToShow: 4 } },
-      { breakpoint: 992, settings: { slidesToShow: 3 } },
-      { breakpoint: 768, settings: { slidesToShow: 2 } },
-      { breakpoint: 576, settings: { slidesToShow: 1 } },
+      {
+        breakpoint: 1024, // For screens up to 1024px wide
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 768, // For screens up to 768px wide
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480, // For screens up to 480px wide
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
     ],
   };
 
@@ -34,7 +53,13 @@ const Excellence = ({ handleTogglecontactForm }) => {
         </p>
         <Slider {...settings} className={styles.slider}>
           {excellenceData.map((item) => (
-            <a key={item.id} className={styles.slideItem} href={item.link} target="_blank" onClick={!item.link ? handleTogglecontactForm : undefined} >
+            <a
+              key={item.id}
+              className={styles.slideItem}
+              href={item.link}
+              target="_blank"
+              onClick={!item.link ? handleTogglecontactForm : undefined}
+            >
               <div className={styles.card}>
                 <img
                   src={item.icon}

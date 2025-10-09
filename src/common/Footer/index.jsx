@@ -7,7 +7,7 @@ const Footer = () => {
     <footer className={styles.footerWrapper}>
       <div className="container">
         <div className="row">
-          <div className="col-xl-4 col-lg-5 col-md-7">
+          <div className="col-xl-4 col-lg-5 col-md-7 col-12 ">
             <div className={`${styles.imgcontainer} my-3`}>
               <a
                 href="https://www.pixeleyehospitals.com/"
@@ -27,8 +27,8 @@ const Footer = () => {
               <h6>Read More ...</h6>
             </div>
           </div>
-          <div className="col-xl-4 col-lg-4 col-md-5">
-            <div className="d-flex justify-content-center">
+          <div className="col-xl-4 col-lg-4 col-md-5 col-12 ">
+            <div className="d-flex justify-content-md-center justify-content-start mt-5 mt-md-0">
               <div className="mt-2">
                 <div className={`${styles.footertitle}`}>
                   <h6>Visiting Hours</h6>
@@ -51,7 +51,7 @@ const Footer = () => {
           </div>
 
           <div className="col-xl-4 col-lg-3 col-12">
-            <div className="d-flex justify-content-lg-center  justify-content-start mt-5 mt-lg-0">
+            <div className="d-flex justify-content-lg-center  justify-content-start mt-md-5 mt-4 mt-lg-0">
               <div className="mt-2">
                 <div className={`${styles.footertitle}`}>
                   <h6>Follow Us</h6>
@@ -73,11 +73,11 @@ const Footer = () => {
       </div>
 
       <div className="container mt-lg-5 mt-4">
-        <div className={`${styles.footertitle} text-center `}>
+        <div className={`${styles.footertitle} text-md-center text-start `}>
           <h6>Reach Us</h6>
         </div>
 
-        <div className="d-flex align-items-center justify-content-evenly mt-5">
+        <div className="d-md-flex align-items-center justify-content-evenly mt-md-5 mt-4">
           <div className={styles.addressWrapper}>
             <div className={`${styles.address} d-flex align-items-start gap-2`}>
               <div className={styles.addresspin}>
