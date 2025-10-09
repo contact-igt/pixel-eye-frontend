@@ -50,14 +50,17 @@ const Testimonials = ({ data }) => {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth > 768) {
+      if (window.innerWidth > 992) {
         setSlidesToShow(3);
         setCenterMode(false);
-      } else if (window.innerWidth <= 768 && window.innerWidth > 576) {
-        setSlidesToShow(2.5);
+      }else if(window.innerWidth > 700){
+        setSlidesToShow(2);
+        setCenterMode(false);
+      }  else if (window.innerWidth <= 700 && window.innerWidth > 576) {
+        setSlidesToShow(1.5);
         setCenterMode(false);
       } else {
-        setSlidesToShow(1.5);
+        setSlidesToShow(1);
         setCenterMode(true);
       }
     };

@@ -46,7 +46,10 @@
   border-radius: 8px;
   font-size: 1rem;
 }
-
+.error{
+  margin-top: 3px;
+  height: 8px;
+}
 .statsContainer {
   display: flex;
   gap: 2.3rem;
@@ -59,14 +62,18 @@
   text-align: center;
   width: 160px;
 }
-
+.inputGroup input{
+  width: 100px !important;
+}
 .statValue {
   font-size: 2.8rem;
   font-weight: 700;
   color: #153b56;
   margin: 0;
 }
-
+.formContainer button{
+   white-space: nowrap !important;
+}
 .statLabel {
   font-size: 1.1rem;
   color: #23527c;

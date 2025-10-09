@@ -8,41 +8,38 @@ const MultiCheckup = () => {
 
     const wellnessImages = [
         {
-            src: "/assets/services.jpg"
+            src: "/assets/gallery1.jpg"
         },
         {
-            src: "/assets/services.jpg"
+            src: "/assets/gallery2.jpg"
         },
         {
-            src: "/assets/services.jpg"
+            src: "/assets/gallery3.webp"
         },
         {
-            src: "/assets/services.jpg"
+            src: "/assets/gallery4.jpg"
         },
         {
-            src: "/assets/services.jpg"
+            src: "/assets/gallery5.webp"
         },
         {
-            src: "/assets/services.jpg"
+            src: "/assets/gallery6.webp"
         },
         {
-            src: "/assets/services.jpg"
+            src: "/assets/gallery7.webp"
         },
         {
-            src: "/assets/services.jpg"
+            src: "/assets/gallery8.webp"
         },
-        {
-            src: "/assets/services.jpg"
-        }
     ]
-    
+
     const settings = {
         dots: true,
         infinite: true,
         speed: 500,
         slidesToShow: 5,
         slidesToScroll: 1,
-        centerMode: true,
+        centerMode: false,
         centerPadding: '0px',
         autoplay: true,
         arrows: false,

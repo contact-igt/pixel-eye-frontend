@@ -3,7 +3,6 @@ import Slider from "react-slick";
 import styles from "./styles.module.css";
 import { excellenceData } from "./constant";
 import Button from "@/common/Button";
-
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -35,7 +34,7 @@ const Excellence = ({ handleTogglecontactForm }) => {
         </p>
         <Slider {...settings} className={styles.slider}>
           {excellenceData.map((item) => (
-            <div key={item.id} className={styles.slideItem}>
+            <a key={item.id} className={styles.slideItem} href={item.link} target="_blank" onClick={!item.link ? handleTogglecontactForm : undefined} >
               <div className={styles.card}>
                 <img
                   src={item.icon}
@@ -44,7 +43,7 @@ const Excellence = ({ handleTogglecontactForm }) => {
                 />
                 <p className={styles.cardTitle}>{item.title}</p>
               </div>
-            </div>
+            </a>
           ))}
         </Slider>
         <div className={styles.viewMoreContainer}>

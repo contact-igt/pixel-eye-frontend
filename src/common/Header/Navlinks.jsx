@@ -14,7 +14,8 @@ const Navlinks = () => {
     { href: "https://cataracts.pixeleyehospitals.com/", label: "Cataract Eye Surgery" },
     { href: "https://eyespecialist.pixeleyehospitals.com/", label: "LASIK & Refractive Surgery" },
     { href: "https://squinteyes.pixeleyehospitals.com/", label: "Squint Correction" },
-    { href: "https://retina.pixeleyehospitals.com/", label: "Glaucoma Treatment" },
+    { href: "https://retina.pixeleyehospitals.com/", label: "Retina Treatment" },
+     { href: "https://glaucoma.pixeleyehospitals.com/", label: "Glaucoma Treatment" },
   ];
 
   const links = [
@@ -46,7 +47,7 @@ const Navlinks = () => {
                 <ul className={styles.dropdownContent}>
                   {link.dropdown.map((service) => (
                     <li key={service.href}>
-                      <Link href={service.href} className={styles.dropdownLink}>
+                      <Link href={service.href} target="_blank" className={styles.dropdownLink}>
                         {service.label}
                       </Link>
                     </li>
