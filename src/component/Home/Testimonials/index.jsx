@@ -16,7 +16,7 @@ const Testimonials = ({ data }) => {
             surgery: "Cataract Surgery",
             testimonial: "I was diagnosed with cataracts about a year ago and was advised to have surgery within six months to a year. On my friends’ recommendation, I visited Dr. Poojita, who had successfully operated on their eyes. The surgery took only about 15 minutes and was completely smooth. After using the prescribed eye drops, my vision became clear, and I no longer need reading glasses. It feels like a rebirth for my eyesight—I’m truly grateful for the excellent care and the clarity I’ve regained.",
             image: "/assets/testimonialImage1.png",
-            link:"https://www.youtube.com/embed/iRWjw7FFzss?si=_LlxFRiQW468Af84"
+            videoUrl: "https://www.youtube.com/embed/iRWjw7FFzss?si=_LlxFRiQW468Af84"
         },
         {
             id: 2,
@@ -24,22 +24,22 @@ const Testimonials = ({ data }) => {
             surgery: "Cataract Surgery",
             testimonial: "I came to Hyderabad from South Sudan with my mother for her eye treatment at Pixel Hospitals. From the moment we arrived, the staff welcomed us with kindness and humility, making us feel at home. Dr. Pja explained every detail about the cataract surgery clearly and patiently. The cost was very affordable, even though we had financial limitations. After the surgery, my mother’s vision improved greatly—she can see clearly again. We are truly thankful to Pixel Hospitals and Dr. Pja for their excellent care. I highly recommend this hospital to anyone looking for quality eye treatment in Hyderabad.",
             imageSrc: "/assets/testimonialImage2.png",
-            link:"https://www.youtube.com/embed/JGXsahnIBEA?si=6OvkgPojalx5l9dK"
+            videoUrl: "https://www.youtube.com/embed/JGXsahnIBEA?si=6OvkgPojalx5l9dK"
         },
         {
             id: 3,
             name: "Our patient",
             surgery: "Cataract Surgery",
             testimonial: "I had been struggling with health issues for more than 40 years. After receiving treatment, I experienced a remarkable improvement — it truly feels like a new beginning. The doctors and staff showed great care and support throughout my recovery journey. Today, I feel healthier, more confident, and grateful for the positive changes this treatment has brought to my life.",
-            link:"https://www.youtube.com/embed/MCiL5Xxlkk4?si=XgyxLvfXs_axXoto",
-              imageSrc: "/assets/testimonialImage3.png"
+            videoUrl: "https://www.youtube.com/embed/MCiL5Xxlkk4?si=XgyxLvfXs_axXoto",
+            imageSrc: "/assets/testimonialImage3.png"
         },
         {
             id: 4,
             name: "Mr. Vishnuvardhan",
             surgery: "SMILE Surgery",
-            rating: 4,
             testimonial: "I had been wearing glasses since my school days — nearly 15 years of constant dependency from morning till night. My power had increased to -6.5D, and I always wished I could see clearly without glasses. After following Dr. Abdul Rasheed’s videos on YouTube, I decided to visit Pixel Eye Hospital. Dr. Rasheed and his team guided me through every step and suggested SMILE surgery.",
+            videoUrl:"https://www.youtube.com/embed/EqFa79PiI4U?si=bL_XBGSdPXJCXFxo",
             imageSrc: "/assets/testimonialImage4.png"
         },
     ]
