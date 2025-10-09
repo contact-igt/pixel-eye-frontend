@@ -13,19 +13,19 @@ export const HomeData = {
       value: "15+",
       title: "Years of Experience",
       description: "Excellence in eye care",
-      color:"#FF914D"
+      color: "#FF914D",
     },
     {
       value: "2000+",
       title: "Successful LASIK Procedures",
       description: "Proven results",
-      color:"#4F9BCF"
+      color: "#4F9BCF",
     },
     {
       value: "98%",
       title: "Patient Satisfaction Rate",
       description: "Happy, glasses-free lives",
-      color:"#63D35D"
+      color: "#63D35D",
     },
   ],
   checkSurgery: {
@@ -190,4 +190,56 @@ export const HomeData = {
         "Since LASIK is considered an elective procedure, it’s usually not covered by insurance. But we offer affordable EMI and flexible payment options at Pixel Eye Hospital.",
     },
   ],
+
+  footer: {
+    about:
+      "In a world of technological advancements, where healthcare can sometimes feel impersonal, Pixel Eye Hospital stands apart as the beacon of genuine care",
+    address1:
+      "TRT 1190, Ground Floor, Bansal Residency, Beside Sanath Nagar Police Station, Sanath Nagar main road, Hyderabad, Telangana 500018",
+    address2:
+      "Fourth Floor, Commercial Complex PNR Highnest, 1-2-22/PNRHN/3/B, Dharma Reddy Colony Phase II, Kukatpally Housing Board Colony, Hyderabad, Telangana 500085",
+    number1: "070750 08561",
+    number2: "096504 63841",
+    email: "info@pixeleyehospitals.com",
+    vistis: [
+      {
+        id: 1,
+        weeks: "Sunday",
+        time: "10.00 am - 3.00 pm",
+      },
+      {
+        id: 2,
+        weeks: "Monday - Saturday",
+        time: "09.00 am - 7.00 pm",
+      },
+    ],
+
+    socilalink: [
+      {
+        id: 1,
+        icon: "linkedin",
+        link: "https://www.linkedin.com/company/pixel-eye-hospital/",
+        name : "Linked In"
+      },
+      {
+        id: 2,
+        icon: "facebook",
+        link: "https://www.facebook.com/pixeleyehospital/",
+        name : "Facebook"
+      },
+      {
+        id: 3,
+        icon: "instagram",
+        link: "https://www.instagram.com/pixeleyehospital/",
+        name : "Instagram"
+      },
+
+      {
+        id: 4,
+        icon: "twitter",
+        link: "https://x.com/pixel_hospital",
+        name : "Twitter"
+      },
+    ],
+  },
 };

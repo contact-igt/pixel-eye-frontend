@@ -1,0 +1,153 @@
+import { HomeData } from "@/constant/Home";
+import styles from "./styles.module.css";
+import { DynamicIcon } from "lucide-react/dynamic";
+
+const Footer = () => {
+  return (
+    <footer className={styles.footerWrapper}>
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-4">
+            <div className={`${styles.imgcontainer} my-3`}>
+              <a
+                href="https://www.pixeleyehospitals.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="/assets/pixel_logo.png"
+                  alt="Pixel Eye Hospitals Logo"
+                  className={styles.logo}
+                />
+              </a>
+            </div>
+
+            <div className={`${styles.textcontainer}`}>
+              <p>{HomeData?.footer?.about}</p>
+              <h6>Read More ...</h6>
+            </div>
+          </div>
+          <div className="col-lg-4">
+            <div className="d-flex justify-content-center">
+              <div className="mt-2">
+                <div className={`${styles.footertitle}`}>
+                  <h6>Visiting Hours</h6>
+                </div>
+
+                {HomeData?.footer?.vistis?.map((data, i) => (
+                  <div className="d-flex align-items-start gap-2 my-4" key={i}>
+                    <div>
+                      <DynamicIcon name="clock" size={18} />
+                    </div>
+
+                    <div className={styles.visit}>
+                      <h6>{data?.weeks}</h6>
+                      <p>{data?.time}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="col-lg-4">
+            <div className="d-flex justify-content-center">
+              <div className="mt-2">
+                <div className={`${styles.footertitle}`}>
+                  <h6>Follow Us</h6>
+                </div>
+                {HomeData?.footer?.socilalink?.map((data, i) => (
+                  <a href={data?.link}>
+                    <div
+                      className={`${styles.socilalink} d-flex align-items-center gap-2 my-4`}
+                    >
+                      <DynamicIcon name={data?.icon} size={18} />
+                      <h6>{data?.name}</h6>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="container mt-5">
+        <div className={`${styles.footertitle} text-center `}>
+          <h6>Reach Us</h6>
+        </div>
+
+        <div className="d-flex align-items-center justify-content-evenly mt-5">
+          <div className={styles.addressWrapper}>
+            <div className={`${styles.address} d-flex align-items-start gap-2`}>
+              <div className={styles.addresspin}>
+                <DynamicIcon name="map-pin" size={20} />
+              </div>
+              <div className={styles.addresstext}>
+                <p>{HomeData?.footer?.address2}</p>
+              </div>
+            </div>
+
+            <div className={`${styles.number} d-flex align-items-center gap-2`}>
+              <div className={styles.numberpin}>
+                <DynamicIcon name="phone" size={20} />
+              </div>
+              <div
+                className={`${styles.numbertext} d-flex align-items-center gap-2  my-4`}
+              >
+                <p>{HomeData?.footer?.number1}</p>
+                <p>{HomeData?.footer?.number2}</p>
+              </div>
+            </div>
+
+            <div className={`${styles.email} d-flex align-items-center gap-2`}>
+              <div className={styles.emailpin}>
+                <DynamicIcon name="mail" size={20} />
+              </div>
+              <div
+                className={`${styles.emailtext} d-flex align-items-center gap-2 `}
+              >
+                <p>{HomeData?.footer?.email}</p>
+              </div>
+            </div>
+          </div>
+          <div className={styles.addressWrapper}>
+            <div className={`${styles.address} d-flex align-items-start gap-2`}>
+              <div className={styles.addresspin}>
+                <DynamicIcon name="map-pin" size={20} />
+              </div>
+              <div className={styles.addresstext}>
+                <p>{HomeData?.footer?.address1}</p>
+              </div>
+            </div>
+
+            <div className={`${styles.number} d-flex align-items-center gap-2`}>
+              <div className={styles.numberpin}>
+                <DynamicIcon name="phone" size={20} />
+              </div>
+              <div
+                className={`${styles.numbertext} d-flex align-items-center gap-2  my-4`}
+              >
+                <p>{HomeData?.footer?.number1}</p>
+                <p>{HomeData?.footer?.number2}</p>
+              </div>
+            </div>
+
+            <div className={`${styles.email} d-flex align-items-center gap-2`}>
+              <div className={styles.emailpin}>
+                <DynamicIcon name="mail" size={20} />
+              </div>
+              <div
+                className={`${styles.emailtext} d-flex align-items-center gap-2 `}
+              >
+                <p>{HomeData?.footer?.email}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;

@@ -24,9 +24,7 @@ export const Popup = ({ children, open, onClose, variant = "default" }) => {
 
   return (
     <div
-      className={`${styles.bg} ${
-        variant === "video" ? styles.videoBg : ""
-      }`}
+      className={`${styles.bg} ${variant === "video" ? styles.videoBg : ""}`}
     >
       <div
         className={`${styles.wrapper} ${

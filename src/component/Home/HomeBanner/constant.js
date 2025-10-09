@@ -1,6 +1,7 @@
 export const bannerData = {
-  title: "Welcome to Centre For Sight",
-  subtitle: "India's Leading Eye Care Network",
+  title: "Welcome to Pixel Eye Hospital",
+  subtitle:
+    "Join thousands who’ve restored their sight with Pixel Eye Hospital’s expert Doctors and Surgeons. Now with 2 Branches- Kukatpally & Sanath Nagar",
   stats: [
     { value: "30", label: "Years of Trust" },
     { value: "30+", label: "Cities" },

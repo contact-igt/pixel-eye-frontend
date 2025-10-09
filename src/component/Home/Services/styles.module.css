@@ -11,27 +11,37 @@
   margin-bottom: 3rem;
 }
 
-.cardGrid {
-  row-gap: 2rem;
+.serviceCard {
+  width: 500px;
 }
 
 /* Responsive */
 @media (max-width: 1400px) {
-  .sectionTitle { font-size: 2.3rem; }
+  .sectionTitle {
+    font-size: 2.3rem;
+  }
 }
 
 @media (max-width: 1200px) {
-  .sectionTitle { font-size: 2.1rem; }
+  .sectionTitle {
+    font-size: 2.1rem;
+  }
 }
 
 @media (max-width: 992px) {
-  .sectionTitle { font-size: 2rem; }
+  .sectionTitle {
+    font-size: 2rem;
+  }
 }
 
 @media (max-width: 768px) {
-  .sectionTitle { font-size: 1.8rem; }
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
 }
 
 @media (max-width: 576px) {
-  .sectionTitle { font-size: 1.6rem; }
+  .sectionTitle {
+    font-size: 1.6rem;
+  }
 }

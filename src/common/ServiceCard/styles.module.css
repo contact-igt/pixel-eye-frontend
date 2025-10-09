@@ -20,7 +20,9 @@
 
 .cardImage {
   width: 100%;
-  height: auto;
+  height: 300px;
+  object-fit: cover;
+
 }
 
 .newlyLaunched {
@@ -54,4 +56,14 @@
   color: #000;
   margin-bottom: 1.5rem;
   flex-grow: 1;
+}
+
+.cardContent button {
+  transition: all 0.5s ease-in-out !important;
+}
+
+.cardContent button:hover {
+  color: #fff !important;
+  background-color: #153b56 !important;
+  transition: all 0.5s ease-in-out !important;
 }
