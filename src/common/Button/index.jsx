@@ -15,6 +15,8 @@ const Button = ({
   handleTogglecontactForm,
   disabled,
   border,
+  target,
+  suffix,
   hideTextOnMobile,
 }) => {
   const buttonStyle = {
@@ -26,18 +28,22 @@ const Button = ({
 
   const content = (
     <>
-      {isicon && <DynamicIcon name={icon} color={iconcolor} />}
-      {isimg && imgicon && (
+      {isicon && !suffix && <DynamicIcon name={icon} color={iconcolor} />}
+      {isimg && imgicon && !suffix && (
         <Image src={imgicon} width={20} height={20} alt={`${name}-icon`} />
       )}
       {name && <h6 className={`m-0 ${hideTextOnMobile ? styles.hideOnMobile : ''}`}>{name}</h6>}
+      {isimg && imgicon && suffix && (
+        <Image src={imgicon} width={20} height={20} alt={`${name}-icon`} />
+      )}
+      {isicon && suffix && <DynamicIcon name={icon} color={iconcolor} />}
     </>
   );
 
   return href ? (
     <a
       href={href}
-      target="_blank"
+      target={target}
       rel="noopener noreferrer"
       className={`btn text-decoration-none`}
     >

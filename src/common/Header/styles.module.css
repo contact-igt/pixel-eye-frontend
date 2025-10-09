@@ -29,6 +29,7 @@
 
 .navLink:hover {
   color: #f5a623; /* Changed to accent orange */
+  cursor: pointer;
 }
 
 .dropdown {
@@ -58,7 +59,7 @@
   z-index: 1;
   list-style: none;
   padding: 0.5rem 0;
-  margin-top: 0.5rem;
+  margin-top: 0rem;
   border-radius: 8px;
   border: 1px solid #eee;
   opacity: 0;
@@ -74,7 +75,7 @@
 }
 
 .dropdownLink {
-  color: #153b56;
+  color: #153b56 !important;
   padding: 10px 20px;
   text-decoration: none;
   display: block;
@@ -84,6 +85,7 @@
 
 .dropdownLink:hover {
   background-color: rgba(21, 59, 86, 0.05);
+  font-weight: 500;
 }
 
 .hamburger {

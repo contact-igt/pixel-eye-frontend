@@ -11,16 +11,16 @@ const Navlinks = () => {
   };
 
   const services = [
-    { href: "/service/cataract-eye-surgery", label: "Cataract Eye Surgery" },
-    { href: "/service/smart-surface-lasik", label: "Smart Surface LASIK" },
-    { href: "/service/custom-eyes-lasik", label: "Custom Eyes LASIK" },
-    { href: "/service/prk", label: "PRK (Photorefractive Keratectomy)" },
+    { href: "https://cataracts.pixeleyehospitals.com/", label: "Cataract Eye Surgery" },
+    { href: "https://eyespecialist.pixeleyehospitals.com/", label: "LASIK & Refractive Surgery" },
+    { href: "https://squinteyes.pixeleyehospitals.com/", label: "Squint Correction" },
+    { href: "https://retina.pixeleyehospitals.com/", label: "Glaucoma Treatment" },
   ];
 
   const links = [
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
-    { href: "/service", label: "Service", dropdown: services },
+    { href: "", label: "Service", dropdown: services },
     { href: "/contacts", label: "Contacts" },
   ];
 
@@ -29,15 +29,19 @@ const Navlinks = () => {
       <nav className={`${styles.nav} ${isNavOpen ? styles.active : ''}`}>
         <ul className={styles.navList}>
           {links.map((link) => (
-            <li 
-              key={link.href} 
+            <li
+              key={link.href}
               className={link.dropdown ? styles.dropdown : ''}
               onMouseEnter={() => link.dropdown && setIsServiceDropdownOpen(true)}
               onMouseLeave={() => link.dropdown && setIsServiceDropdownOpen(false)}
             >
-              <Link href={link.href} className={styles.navLink}>
+              {link?.href !== "" ? (
+                <Link href={link.href} className={styles.navLink}>
+                  {link.label}
+                </Link>) : <span className={styles.navLink}>
                 {link.label}
-              </Link>
+              </span>
+              }
               {link.dropdown && isServiceDropdownOpen && (
                 <ul className={styles.dropdownContent}>
                   {link.dropdown.map((service) => (
