@@ -3,7 +3,7 @@ import styles from './styles.module.css';
 import { expertsData } from './constant';
 import DoctorCard from './DoctorCard';
 
-const Experts = () => {
+const Experts = ({handleTogglecontactForm}) => {
   return (
     <section className={styles.expertsSection}>
       <div className="container-md">
@@ -11,7 +11,7 @@ const Experts = () => {
         <div className={`row justify-content-center ${styles.cardGrid}`}>
           {expertsData.map((expert) => (
             <div className="col-lg-6 col-md-10" key={expert.id}>
-              <DoctorCard expert={expert} />
+              <DoctorCard expert={expert} handleTogglecontactForm={handleTogglecontactForm} />
             </div>
           ))} 
         </div>

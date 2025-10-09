@@ -74,7 +74,7 @@ const Form = ({ handleTogglecontactForm }) => {
   };
 
   return (
-    <div className={`${styles.card} bg-white p-6 rounded-xl shadow-lg mx-auto`}>
+    <div className={`${styles.card}`}>
       <h4 className="fw-semibold mb-4 text-2xl" style={{ color: "#2A3B77" }}>
         Book Consultation
       </h4>

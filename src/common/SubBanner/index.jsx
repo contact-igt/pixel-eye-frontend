@@ -29,7 +29,9 @@ const SubBanner = ({
     <section className="my-4 overflow-hidden">
       <div
         className={`${styles.subbanner} commonshadow`}
-        onClick={href ? undefined : ()=>handleTogglecontactForm(title,spantitle)}
+        onClick={
+          href ? undefined : () => handleTogglecontactForm(title, spantitle)
+        }
         style={{
           backgroundColor: bgcolor,
           border: ` 1px solid ${bordercolor}`,
@@ -45,7 +47,7 @@ const SubBanner = ({
               <p>{content}</p>
 
               <Button
-                name={btn_name} 
+                name={btn_name}
                 bgcolor={btn_bgcolor}
                 txtcolor={btn_txtcolor}
                 icon={icon_name}
@@ -57,17 +59,20 @@ const SubBanner = ({
               />
             </div>
           </div>
-          <div className={`${styles.imageContainer} col-lg-5 d-flex align-items-start justify-content-start`} style={{ position: 'relative', height: height ? height : "180px" }}>
+          <div
+            className={`${styles.imageContainer} col-lg-5 d-flex align-items-start justify-content-start`}
+            style={{ position: "relative", height: height ? height : "180px" }}
+          >
             <div style={{}}>
               <Image
-                src={img ? img : '/placeholder.jpg'}
+                src={img ? img : "/placeholder.jpg"}
                 alt="sub-banner-img"
                 fill={true}
                 style={{
-                  objectFit: 'cover',
+                  objectFit: "cover",
                   maxWidth: "100%",
                   transform: `scale(${scale})`,
-                  objectPosition: 'center center'
+                  objectPosition: "center center",
                 }}
                 className={styles.subBannerImg}
                 priority={true}
