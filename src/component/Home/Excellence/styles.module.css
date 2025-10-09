@@ -18,7 +18,7 @@
   color: #000;
 }
 
-.slider .slick-slide > div {
+.slider .slick-slide>div {
   padding: 20px 10px;
 }
 
@@ -56,8 +56,9 @@
   color: #153b56;
   font-weight: 500;
   margin: 0;
-    font-size: 18px;
+  font-size: 18px;
 }
+
 .card:hover .cardTitle {
   color: #fff;
   font-size: 18px;
@@ -70,4 +71,13 @@
   justify-content: center;
   align-items: center;
   gap: 18px;
+}
+
+
+@media (width < 1200px) {
+
+  .excellenceSection {
+    padding: 4rem 0;
+  }
+
 }

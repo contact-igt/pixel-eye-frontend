@@ -26,6 +26,8 @@
 }
 
 .addresstext p,
+.numbertext p,
+.emailtext p,
 .visit p {
     font-size: 14px;
 }
@@ -44,4 +46,27 @@
 
 .socilalink:hover{
 color: #fff;
+}
+
+
+@media (width < 1200px) {
+
+    .addressWrapper{
+        width: 400px;
+    }
+    
+}
+
+
+@media (width < 992px) {
+
+    .addressWrapper{
+        width: 320px;
+    }
+
+    .footerWrapper{
+        padding-top: 50px;
+        padding-bottom: 120px;
+    }
+    
 }
