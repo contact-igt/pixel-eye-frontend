@@ -11,32 +11,31 @@ import QuickAction from "@/common/QuickAction";
 import MultiCheckup from "@/component/Home/MultiCheckup";
 import Experts from "@/component/Home/Experts";
 import Testimonials from "@/component/Home/Testimonials";
+import FooterCTA from "@/component/Home/FooterCTA";
 
 const HomePageComponent = () => {
   const [open, setOpen] = useState(false);
-  const [formTitle, setFormTitle] = useState({ title: "", subtitle: "" });
-  const handleTogglecontactForm = (title, subtitle) => {
-    setFormTitle({ title: title, subtitle: subtitle });
+  const handleTogglecontactForm = () => {
     setOpen(!open);
   };
 
   return (
     <>
       <div className="p-0 position-relative">
-        <Header />
+        <Header handleTogglecontactForm={handleTogglecontactForm} />
         <HomeBanner />
         <Excellence />
         <MultiCheckup />
         <Services />
         <Experts />
         <Testimonials />
+        <FooterCTA />
         <QuickAction handleTogglecontactForm={handleTogglecontactForm} />
       </div>
 
       <Popup open={open} onClose={() => handleTogglecontactForm()}>
         <Form
           handleTogglecontactForm={handleTogglecontactForm}
-          title={formTitle}
         />
       </Popup>
     </>

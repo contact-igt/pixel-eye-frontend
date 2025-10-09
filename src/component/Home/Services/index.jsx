@@ -10,7 +10,7 @@ const Services = () => {
         <h2 className={styles.sectionTitle}>Our Eye Care Specialities</h2>
         <div className={`row ${styles.cardGrid}`}>
           {servicesData.map((service) => (
-            <div className="col-lg-3 col-md-6" key={service.id}>
+            <div className="col-lg-3 col-md-6 col-sm-12 col-12" key={service.id}>
               <ServiceCard service={service} />
             </div>
           ))}

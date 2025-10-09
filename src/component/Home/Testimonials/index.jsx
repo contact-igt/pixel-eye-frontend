@@ -12,52 +12,36 @@ const Testimonials = ({ data }) => {
     const testimonialContent = [
         {
             id: 1,
-            name: "Priya Sharma",
-            location: "Chennai",
-            rating: 5,
-            testimonial: "The multi-disciplinary health checkup was thorough and well-organized. The staff was professional and caring. I received my detailed reports within 24 hours. Highly recommend this wellness centre!",
-            image: "/assets/services.jpg"
+            name: "Koteswara",
+            surgery: "Cataract Surgery",
+            testimonial: "I was diagnosed with cataracts about a year ago and was advised to have surgery within six months to a year. On my friends’ recommendation, I visited Dr. Poojita, who had successfully operated on their eyes. The surgery took only about 15 minutes and was completely smooth. After using the prescribed eye drops, my vision became clear, and I no longer need reading glasses. It feels like a rebirth for my eyesight—I’m truly grateful for the excellent care and the clarity I’ve regained.",
+            image: "/assets/testimonialImage1.png",
+            link:"https://www.youtube.com/embed/iRWjw7FFzss?si=_LlxFRiQW468Af84"
         },
         {
             id: 2,
-            name: "Rajesh Kumar",
-            location: "Bangalore",
-            rating: 5,
-            testimonial: "Excellent facilities and state-of-the-art equipment. The doctors took time to explain every test and the results. The preventive health checkup helped detect early signs of diabetes. Grateful for their care.",
-            imageSrc: "/assets/services.jpg"
+            name: "Our Patient",
+            surgery: "Cataract Surgery",
+            testimonial: "I came to Hyderabad from South Sudan with my mother for her eye treatment at Pixel Hospitals. From the moment we arrived, the staff welcomed us with kindness and humility, making us feel at home. Dr. Pja explained every detail about the cataract surgery clearly and patiently. The cost was very affordable, even though we had financial limitations. After the surgery, my mother’s vision improved greatly—she can see clearly again. We are truly thankful to Pixel Hospitals and Dr. Pja for their excellent care. I highly recommend this hospital to anyone looking for quality eye treatment in Hyderabad.",
+            imageSrc: "/assets/testimonialImage2.png",
+            link:"https://www.youtube.com/embed/JGXsahnIBEA?si=6OvkgPojalx5l9dK"
         },
         {
             id: 3,
-            name: "Anita Reddy",
-            location: "Hyderabad",
-            rating: 5,
-            testimonial: "Best healthcare experience I've had. The personalized health checkup package was comprehensive. The nutritionist's advice was invaluable. The entire process was smooth and hassle-free.",
-            imageSrc: "/assets/services.jpg"
+            name: "Our patient",
+            surgery: "Cataract Surgery",
+            testimonial: "I had been struggling with health issues for more than 40 years. After receiving treatment, I experienced a remarkable improvement — it truly feels like a new beginning. The doctors and staff showed great care and support throughout my recovery journey. Today, I feel healthier, more confident, and grateful for the positive changes this treatment has brought to my life.",
+            link:"https://www.youtube.com/embed/MCiL5Xxlkk4?si=XgyxLvfXs_axXoto",
+              imageSrc: "/assets/testimonialImage3.png"
         },
         {
             id: 4,
-            name: "Vikram Patel",
-            location: "Mumbai",
+            name: "Mr. Vishnuvardhan",
+            surgery: "SMILE Surgery",
             rating: 4,
-            testimonial: "Very impressed with the wellness center's approach to preventive healthcare. The reports were detailed and easy to understand. The follow-up consultation was helpful in creating a health plan.",
-            imageSrc: "/assets/services.jpg"
+            testimonial: "I had been wearing glasses since my school days — nearly 15 years of constant dependency from morning till night. My power had increased to -6.5D, and I always wished I could see clearly without glasses. After following Dr. Abdul Rasheed’s videos on YouTube, I decided to visit Pixel Eye Hospital. Dr. Rasheed and his team guided me through every step and suggested SMILE surgery.",
+            imageSrc: "/assets/testimonialImage4.png"
         },
-        {
-            id: 5,
-            name: "Lakshmi Iyer",
-            location: "Coimbatore",
-            rating: 5,
-            testimonial: "The staff was extremely courteous and the ambiance was calming. My elderly parents felt comfortable throughout the checkup. The doctors were patient in answering all our questions. Thank you!",
-            imageSrc: "/assets/services.jpg"
-        },
-        {
-            id: 6,
-            name: "Arjun Menon",
-            location: "Kochi",
-            rating: 5,
-            testimonial: "Outstanding service! The comprehensive health screening detected issues I wasn't aware of. The doctors provided a clear action plan. The wellness center truly focuses on holistic health.",
-            imageSrc: "/assets/services.jpg"
-        }
     ]
 
     useEffect(() => {
@@ -69,7 +53,7 @@ const Testimonials = ({ data }) => {
                 setSlidesToShow(2.5);
                 setCenterMode(false);
             } else {
-                setSlidesToShow(1);
+                setSlidesToShow(1.5);
                 setCenterMode(true);
             }
         };
@@ -108,7 +92,7 @@ const Testimonials = ({ data }) => {
                 <Slider key={slidesToShow + (centerMode ? 'c' : '')} {...settings} className={styles.sliderWrapper}>
                     {
                         testimonialContent?.map((item, index) => (
-                            <TestimonialCard key={index} imageSrc={item?.imageSrc || item?.image} openModal={() => openModal(item.videoUrl)} name={item?.name} testimonial={item?.testimonial} />
+                            <TestimonialCard key={index} imageSrc={item?.imageSrc || item?.image} openModal={() => openModal(item.videoUrl)} name={item?.name} testimonial={item?.testimonial} surgery={item?.surgery} />
                         ))
                     }
                 </Slider>

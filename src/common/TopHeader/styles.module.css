@@ -5,3 +5,45 @@
 .logo {
   max-width: 200px;
 }
+
+/* Responsive */
+@media (max-width: 1400px) {
+  .logo {
+    max-width: 180px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .logo {
+    max-width: 160px;
+  }
+}
+
+@media (max-width: 992px) {
+  .logo {
+    max-width: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  .topHeader {
+    padding: 0.5rem 1rem;
+  }
+  .logo {
+    max-width: 140px;
+  }
+}
+
+@media (max-width: 576px) {
+  .topHeader .container-md {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .logo {
+    max-width: 120px;
+  }
+  .buttonGroup {
+    width: 100%;
+    justify-content: space-between;
+  }
+}

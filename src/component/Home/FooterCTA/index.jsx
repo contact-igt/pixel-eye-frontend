@@ -1,29 +1,35 @@
-import React from 'react';
-import styles from './styles.module.css';
-import { ctaItems } from './constant';
-import Link from 'next/link';
+import React from "react";
+import styles from "./styles.module.css";
+import { CalendarClock, ClipboardCheck, MapPin } from 'lucide-react';
 
 const FooterCTA = () => {
   return (
-    <div className={styles.ctaContainer}>
-      <div className="container-md">
-        <div className={styles.ctaGrid}>
-          {ctaItems.map((item) => {
-            const Icon = item.icon;
-            return (
-              <Link href={item.link} key={item.id}>
-                <a className={styles.ctaItem}>
-                  <div className={styles.iconWrapper}>
-                    <Icon size={32} color="#153b56" />
-                  </div>
-                  <div className={styles.textWrapper}>
-                    <h5 className={styles.title}>{item.title}</h5>
-                    <p className={styles.subtitle}>{item.subtitle}</p>
-                  </div>
-                </a>
-              </Link>
-            );
-          })}
+    <div className={styles.footerCTA}>
+      <div className={styles.ctaItem}>
+        <div className={styles.icon}>
+            <CalendarClock color="#153b56" size={30} />
+        </div>
+        <div className={styles.text}>
+          <h4>Book an Appointment</h4>
+          <p>+91 40 4244 4222</p>
+        </div>
+      </div>
+      <div className={styles.ctaItem}>
+        <div className={styles.icon}>
+            <ClipboardCheck color="#153b56" size={30} />
+        </div>
+        <div className={styles.text}>
+          <h4>Book Health Check</h4>
+          <p>Assess your health</p>
+        </div>
+      </div>
+      <div className={styles.ctaItem}>
+        <div className={styles.icon}>
+            <MapPin color="#153b56" size={30} />
+        </div>
+        <div className={styles.text}>
+          <h4>Find Hospital</h4>
+          <p>Best care near you</p>
         </div>
       </div>
     </div>

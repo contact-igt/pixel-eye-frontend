@@ -15,6 +15,7 @@ const Button = ({
   handleTogglecontactForm,
   disabled,
   border,
+  hideTextOnMobile,
 }) => {
   const buttonStyle = {
     backgroundColor: bgcolor,
@@ -29,7 +30,7 @@ const Button = ({
       {isimg && imgicon && (
         <Image src={imgicon} width={20} height={20} alt={`${name}-icon`} />
       )}
-      {name && <h6 className="m-0">{name}</h6>}
+      {name && <h6 className={`m-0 ${hideTextOnMobile ? styles.hideOnMobile : ''}`}>{name}</h6>}
     </>
   );
 

@@ -6,7 +6,8 @@ const TestimonialCard = ({
     imageSrc,
     openModal,
     name,
-    testimonial
+    testimonial,
+    surgery
 }) => {
     return (
         <div className={styles.testimonialCard}>
@@ -22,7 +23,7 @@ const TestimonialCard = ({
                 <div className={styles.nameContainer}>
                     <h5>{name}</h5>
                 </div>
-                <h6>Cataract Surgery</h6>
+                <h6>{surgery}</h6>
             </div>
             <div className={styles.textContainer}>
                 <p>{testimonial}</p>

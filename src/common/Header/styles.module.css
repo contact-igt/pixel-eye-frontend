@@ -16,15 +16,74 @@
 }
 
 .navLink {
-  color: #ffffff;
+  color: #fff;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
   padding: 0.5rem 0;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
 }
 
 .navLink:hover {
-  color: #f5a623; /* Use a highlight color from the theme */
+  color: #f5a623; /* Changed to accent orange */
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown .navLink::after {
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #fff;
+  transition: transform 0.3s ease;
+}
+
+.dropdown:hover .navLink::after {
+    transform: rotate(180deg);
+}
+
+.dropdownContent {
+  position: absolute;
+  background-color: #ffffff;
+  min-width: 240px;
+  box-shadow: 0px 8px 24px 0px rgba(0,0,0,0.1);
+  z-index: 1;
+  list-style: none;
+  padding: 0.5rem 0;
+  margin-top: 0.5rem;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+
+.dropdown:hover .dropdownContent {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdownLink {
+  color: #153b56;
+  padding: 10px 20px;
+  text-decoration: none;
+  display: block;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.dropdownLink:hover {
+  background-color: rgba(21, 59, 86, 0.05);
 }
 
 .hamburger {
@@ -39,21 +98,37 @@
   width: 25px;
   height: 3px;
   margin: 5px;
-  background-color: #ffffff;
+  background-color: #333;
 }
 
 /* Responsive */
+@media (max-width: 1400px) {
+  .navLink {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .navLink {
+    font-size: 0.95rem;
+  }
+  .navList {
+    gap: 1.5rem;
+  }
+}
+
 @media (max-width: 992px) {
   .nav {
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
-    background-color: #153b56;
+    background-color: #fff;
     flex-direction: column;
     align-items: center;
     padding: 1rem 0;
     display: none; /* Initially hidden */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   }
 
   .nav.active {
@@ -68,5 +143,23 @@
 
   .hamburger {
     display: block;
+  }
+
+  .dropdownContent {
+    position: static;
+    box-shadow: none;
+    background-color: transparent;
+  }
+}
+
+@media (max-width: 768px) {
+  .navLink {
+    font-size: 1.2rem; /* Larger font for easier tapping */
+  }
+}
+
+@media (max-width: 576px) {
+  .headerWrapper {
+    padding: 0 1rem;
   }
 }

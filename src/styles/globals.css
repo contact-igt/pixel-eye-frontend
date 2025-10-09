@@ -42,6 +42,46 @@ section{
   z-index: 2;
 }
 
+.slick-prev {
+  left: -25px;
+}
+
+.slick-next {
+  right: -25px;
+}
+
+/* Responsive Slider Arrows */
+@media (max-width: 1400px) {
+  .slick-prev {
+    left: 10px;
+  }
+  .slick-next {
+    right: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .slick-prev,
+  .slick-next {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  .slick-prev {
+    left: 5px;
+  }
+  .slick-next {
+    right: 5px;
+  }
+}
+
+@media (max-width: 576px) {
+  .slick-prev,
+  .slick-next {
+    width: 35px !important;
+    height: 35px !important;
+  }
+}
+
 .slick-slider {
   width: 100%;
 }

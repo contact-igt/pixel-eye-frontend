@@ -27,6 +27,15 @@
 
 }
 
+@media (max-width: 768px) {
+    .hideOnMobile {
+        display: none;
+    }
+    .button {
+        padding: 10px 15px !important;
+    }
+}
+
 @media (width<390px){
     .button{
         padding: 15px 25px !important;

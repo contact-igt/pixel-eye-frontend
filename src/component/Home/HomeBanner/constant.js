@@ -8,5 +8,5 @@ export const bannerData = {
     { value: "350+", label: "Doctors" },
   ],
   appointmentText: "To book an appointment",
-  image: "/assets/services.jpg", // Placeholder image
+  image: "/assets/bannerImage.JPG", // Placeholder image
 };

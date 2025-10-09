@@ -15,7 +15,7 @@ const TopHeader = () => {
             />
           </a>
         </div>
-        <div className={`${styles.buttonGroup} d-flex gap-1 gap-md-3`}>
+        <div className={styles.buttonGroup}>
             <Button
               isicon={true}
               href={"tel:+917075008561"}
@@ -25,6 +25,7 @@ const TopHeader = () => {
               border="1px solid #153b56"
               icon={"phone"}
               iconcolor={"#fff"}
+              hideTextOnMobile={true}
             />
             <Button
               href={"https://wa.me/917075008561"}
@@ -33,6 +34,7 @@ const TopHeader = () => {
               txtcolor="#ffffff"
               imgicon={"/assets/whatsapp.png"}
               isimg={true}
+              hideTextOnMobile={true}
             />
           </div>
       </div>
