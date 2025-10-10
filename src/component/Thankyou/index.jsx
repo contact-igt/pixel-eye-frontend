@@ -14,7 +14,7 @@ const Thankyou = () => {
 
             <div className={`${styles.videoContainer} mt-4`}>
                 <iframe
-                    src="https://www.youtube.com/embed/DJXRQDws02I"
+                    src="https://www.youtube.com/embed/JGXsahnIBEA?si=mnid_DPz_7KQTDKQ"
                     title="YouTube video player"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -28,12 +28,12 @@ const Thankyou = () => {
                     <li>
                         Our team will call or message you within 24 hours.
                     </li>
-                    <li>Prepare your questions about LASIK surgery.</li>
+                    <li>We’ll assist with your appointment or queries.</li>
                 </ul>
             </div>
             <div className="mt-4">
                 <Button href="/"
-                target="_self"
+                    target="_self"
                     suffix={true} name="Back to Home" bgcolor="#cf873d" txtcolor="#fff" isicon={true} icon={"arrow-right"} iconcolor={"#fff"} />
             </div>
         </section>
