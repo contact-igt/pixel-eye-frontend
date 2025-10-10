@@ -1,7 +1,6 @@
 import Form from "@/common/Form";
 import Header from "@/common/Header";
 import { Popup } from "@/common/Popup";
-import FAQ from "@/component/Home/Faq";
 import HomeBanner from "@/component/Home/HomeBanner";
 import { useState } from "react";
 import Services from "@/component/Home/Services";
@@ -15,7 +14,7 @@ import Footer from "@/common/Footer";
 
 const HomePageComponent = () => {
   const [open, setOpen] = useState(false);
-  
+
   const handleTogglecontactForm = () => {
     setOpen(!open);
   };
@@ -28,7 +27,7 @@ const HomePageComponent = () => {
         <Excellence handleTogglecontactForm={handleTogglecontactForm} />
         <Testimonials />
         <MultiCheckup />
-        <Experts  handleTogglecontactForm={handleTogglecontactForm} />
+        <Experts handleTogglecontactForm={handleTogglecontactForm} />
         <Services handleTogglecontactForm={handleTogglecontactForm} />
         <FooterCTA handleTogglecontactForm={handleTogglecontactForm} />
         <QuickAction handleTogglecontactForm={handleTogglecontactForm} />
