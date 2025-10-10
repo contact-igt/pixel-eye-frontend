@@ -32,8 +32,8 @@ const Thankyou = () => {
                 </ul>
             </div>
             <div className="mt-4">
-                <Button href="/"
-                    target="_self"
+                <Button href="https://www.pixeleyehospitals.com/"
+                    target="_blank"
                     suffix={true} name="Back to Home" bgcolor="#cf873d" txtcolor="#fff" isicon={true} icon={"arrow-right"} iconcolor={"#fff"} />
             </div>
         </section>
