@@ -23,7 +23,7 @@ const QuickAction = ({ handleTogglecontactForm }) => {
 
       {/* Address */}
       <a
-        href="https://share.google/7oRvWKdsnAvwPiL9b" 
+        href="https://share.google/RdnreaGudm996QFok" 
         target="_blank"
         rel="noopener noreferrer"
         className={styles.actionBtn}

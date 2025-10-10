@@ -1,196 +1,222 @@
 export const HomeData = {
-  banner: {
-    title: "Best LASIK Eye Surgery in Hyderabad",
-    highlights: [
-      "Expert LASIK Surgeons with 15+ Years Experience",
-      "Crystal Clear Vision in Just 15 Minutes!",
-      "Blade-Free, Painless, and 100% Safe",
-      "Affordable EMI Options – See Now, Pay Later",
-    ],
+  bannerData: {
+    title: "Welcome to Pixel Eye Hospital",
+    subtitle:
+      "Join thousands who’ve restored their sight with Pixel Eye Hospital’s expert Doctors and Surgeons. Now with 2 Branches- Kukatpally & Sanath Nagar",
+    stat1value: "30",
+    stat1label: "Years of Trust",
+    stat2value: "30",
+    stat2label: "Cities",
+    stat3value: "85",
+    stat3label: "Eye Care Centres",
+    appointmentText: "To book an appointment",
+    image: "/assets/bannerImage.jpg",
   },
-  stats: [
-    {
-      value: "15+",
-      title: "Years of Experience",
-      description: "Excellence in eye care",
-      color: "#FF914D",
-    },
-    {
-      value: "2000+",
-      title: "Successful LASIK Procedures",
-      description: "Proven results",
-      color: "#4F9BCF",
-    },
-    {
-      value: "98%",
-      title: "Patient Satisfaction Rate",
-      description: "Happy, glasses-free lives",
-      color: "#63D35D",
-    },
-  ],
-  checkSurgery: {
-    spantitle: " Surgery Cost",
-    title: "Check",
-    description:
-      "Find the total cost of Surgery at the best hospitals in your city.",
-    buttontxt: "Calculate Surgery Cost",
-  },
-  risks: {
-    title: "Risks of not getting Lasik",
-    riskList: [
+  excellenceData: {
+    title: "Advanced Care for Every Eye Condition",
+    subTitle:
+      "Discover advanced treatments designed to address every vision challenge, safely and effectively.",
+    excellenceDataList: [
       {
-        title: "Rising Cost of Glasses & Contact Lenses",
-        description: "Ongoing expenses that never end",
+        id: 1,
+        title: "Cataract",
+        icon: "/assets/cataract.png",
+        link: "https://cataracts.pixeleyehospitals.com/",
       },
       {
-        title: "Frequent Eye Infections",
-        description: "Higher risk with prolonged contact lens use",
+        id: 2,
+        title: "Lasik and Refractive Surgery",
+        icon: "/assets/lasik-eye.png",
+        link: "https://eyespecialist.pixeleyehospitals.com/",
       },
       {
-        title: "Restricted Lifestyle",
-        description: "Sports, travel, and daily life limited by glasses",
+        id: 3,
+        title: "Pediatric-Ophthalmology",
+        icon: "/assets/pediatric.png",
       },
       {
-        title: "Worsening Vision Problems",
-        description: "Increasing dependency on thicker lenses",
+        id: 4,
+        title: "Squint",
+        icon: "/assets/squint-eye.png",
+        link: "https://squinteyes.pixeleyehospitals.com/",
       },
+      { id: 5, title: "Dry eye", icon: "/assets/dry-eye.png" },
       {
-        title: "Missed Opportunities",
-        description: "Delay in enjoying a glasses-free life",
+        id: 6,
+        title: "Retina",
+        icon: "/assets/Retina.png",
+        link: "https://retina.pixeleyehospitals.com/",
+      },
+      { id: 7, title: "Keratoconus", icon: "/assets/Keratoconus.png" },
+      {
+        id: 8,
+        title: "Glaucoma",
+        icon: "/assets/Glaucoma.png",
+        link: "https://glaucoma.pixeleyehospitals.com/",
       },
     ],
+    button1text: "Call Now",
+    button1href: "tel:+917075008561",
+    button2text: "Book an Appointment",
   },
-  topDoctor: {
-    title: "Our Top Doctor",
-    doctorList: [
+  testimonialData: {
+    title: "What Our Patients Say",
+    testimonialContents: [
       {
-        img: "/assets/dr-abdul-rasheed.webp",
+        id: 1,
+        name: "Koteswara",
+        surgery: "Cataract Surgery",
+        testimonial:
+          "I was diagnosed with cataracts about a year ago and was advised to have surgery within six months to a year. On my friends’ recommendation, I visited Dr. Poojita, who had successfully operated on their eyes. The surgery took only about 15 minutes and was completely smooth. After using the prescribed eye drops, my vision became clear, and I no longer need reading glasses. It feels like a rebirth for my eyesight—I’m truly grateful for the excellent care and the clarity I’ve regained.",
+        image: "/assets/testimonialImage1.png",
+        videoUrl:
+          "https://www.youtube.com/embed/iRWjw7FFzss?si=_LlxFRiQW468Af84",
+      },
+      {
+        id: 2,
+        name: "Our Patient",
+        surgery: "Cataract Surgery",
+        testimonial:
+          "I came to Hyderabad from South Sudan with my mother for her eye treatment at Pixel Hospitals. From the moment we arrived, the staff welcomed us with kindness and humility, making us feel at home. Dr. Pja explained every detail about the cataract surgery clearly and patiently. The cost was very affordable, even though we had financial limitations. After the surgery, my mother’s vision improved greatly—she can see clearly again. We are truly thankful to Pixel Hospitals and Dr. Pja for their excellent care. I highly recommend this hospital to anyone looking for quality eye treatment in Hyderabad.",
+        imageSrc: "/assets/testimonialImage2.png",
+        videoUrl:
+          "https://www.youtube.com/embed/JGXsahnIBEA?si=6OvkgPojalx5l9dK",
+      },
+      {
+        id: 3,
+        name: "Our patient",
+        surgery: "Cataract Surgery",
+        testimonial:
+          "I had been struggling with health issues for more than 40 years. After receiving treatment, I experienced a remarkable improvement — it truly feels like a new beginning. The doctors and staff showed great care and support throughout my recovery journey. Today, I feel healthier, more confident, and grateful for the positive changes this treatment has brought to my life.",
+        videoUrl:
+          "https://www.youtube.com/embed/MCiL5Xxlkk4?si=XgyxLvfXs_axXoto",
+        imageSrc: "/assets/testimonialImage3.png",
+      },
+      {
+        id: 4,
+        name: "Mr. Vishnuvardhan",
+        surgery: "SMILE Surgery",
+        testimonial:
+          "I had been wearing glasses since my school days — nearly 15 years of constant dependency from morning till night. My power had increased to -6.5D, and I always wished I could see clearly without glasses. After following Dr. Abdul Rasheed’s videos on YouTube, I decided to visit Pixel Eye Hospital. Dr. Rasheed and his team guided me through every step and suggested SMILE surgery.",
+        videoUrl:
+          "https://www.youtube.com/embed/EqFa79PiI4U?si=bL_XBGSdPXJCXFxo",
+        imageSrc: "/assets/testimonialImage4.png",
+      },
+    ],
+  },
+  wellnessData: {
+    title: "WELLNESS CENTRE",
+    subTitle: "",
+    wellnessImages: [
+      {
+        src: "/assets/gallery1.jpg",
+      },
+      {
+        src: "/assets/gallery2.jpg",
+      },
+      {
+        src: "/assets/gallery3.webp",
+      },
+      {
+        src: "/assets/gallery4.jpg",
+      },
+      {
+        src: "/assets/gallery5.webp",
+      },
+      {
+        src: "/assets/gallery6.webp",
+      },
+      {
+        src: "/assets/gallery7.webp",
+      },
+      {
+        src: "/assets/gallery8.webp",
+      },
+    ],
+  },
+  expertData: {
+    title: "Meet Our Experts",
+    expertsList: [
+      {
+        id: 1,
         name: "Dr. Abdul Rasheed",
-        destination: "MD - AIIMS Cataract , Refractive & Squint Surgeon",
-        experience: "25",
+        qualifications: "MD - AIIMS Cataract, Refractive & Squint Surgeon",
+        experience: "25 Years",
         reviews: "97%",
+        image: "/assets/dr-abdul-rasheed.png",
       },
       {
-        img: "/assets/dr-krishna-poojita.webp",
+        id: 2,
         name: "Dr. Krishna Poojita",
-        destination: "MBBS, DNB (Ophthalmology), MRCS (Edinburgh), FICO (UK)",
-        experience: "25",
+        qualifications:
+          "MBBS, DNB (Ophthalmology), MRCS (Edinburgh), FICO (UK)",
+        experience: "25 Years",
         reviews: "97%",
+        image: "/assets/dr-krishna-poojita.png",
       },
     ],
   },
-  consultDoctor: {
-    title: "Now Consult the doctor",
-    description:
-      "Get a  consultation from our top doctors to know the best course of treatment.",
-    buttontxt: "WhatsApp To Consult Doctor",
-    img: "",
+  serviceData: {
+    title: "Our Eye Care Specialities",
+    servicesList: [
+      {
+        id: 1,
+        title: "Cataract Eye Surgery",
+        description:
+          "Experience quick, painless cataract removal for clearer, brighter vision. Our advanced lens implants are tailored to your visual and lifestyle needs, helping you see the world anew",
+        image: "/assets/cataractService.jpg",
+        link: "https://cataracts.pixeleyehospitals.com/",
+        newlyLaunched: false,
+      },
+      {
+        id: 2,
+        title: "LASIK & Refractive Surgery",
+        description:
+          "Achieve freedom from glasses or contacts with our precision LASIK treatments. Using cutting-edge laser technology, we reshape your cornea for sharper, high-definition vision and fast recovery.",
+        image: "/assets/lasikService.jpg",
+        link: "https://eyespecialist.pixeleyehospitals.com/",
+        newlyLaunched: false,
+      },
+      {
+        id: 3,
+        title: "Squint Correction (Strabismus Surgery)",
+        description:
+          "Restore natural eye alignment and confidence with expert squint correction. Our specialists use minimally invasive techniques to improve vision, depth perception, and eye coordination.",
+        image: "/assets/squintService.jpg",
+        link: "https://squinteyes.pixeleyehospitals.com/",
+        newlyLaunched: false,
+      },
+      {
+        id: 4,
+        title: "Glaucoma Treatment",
+        description:
+          "Protect your vision with early detection and advanced glaucoma care. We offer laser, medication, and microsurgical options to control eye pressure and prevent optic nerve damage.",
+        image: "/assets/glaucomaService.jpg",
+        link: "https://glaucoma.pixeleyehospitals.com/",
+        newlyLaunched: false,
+      },
+    ],
   },
-
-  treatmentData: [
+  footerCTAData: [
     {
-      icon: "/assets/treat1.png",
-      title: "Type of LASIK Procedure",
-      // desc: "Standard LASIK, Femto LASIK, or SMILE",
+      title: "Book an Appointment",
+      icon: "calendar-clock",
+      description: "+91 40 4244 4222",
+      link: "",
     },
     {
-      icon: "/assets/treat2.png",
-      title: "Technology Types Used",
-      // desc: "Blade-free, wavefront-guided, or advanced lasers",
+      title: "Book Health Check",
+      icon: "clipboard-check",
+      description: "Assess your health",
+      link: "",
     },
     {
-      icon: "/assets/treat3.png",
-      title: "Eye Condition & Prescription",
-      // desc: "Level of correction are needed",
-    },
-    {
-      icon: "/assets/treat4.png",
-      title: "Consultation & Custom Plan",
-      // desc: "Get your exact cost from an expert",
+      title: "Find Hospital",
+      icon: "map-pin",
+      description: "Best care near you",
+      link: "https://share.google/RdnreaGudm996QFok",
     },
   ],
-
-  whychoose: [
-    {
-      id: 1,
-      title: "Cutting-Edge Technology",
-      // desc: "Latest bladeless & wavefront-guided LASIK systems",
-    },
-
-    {
-      id: 2,
-      title: "Proven Expertise",
-      // desc: "Thousands of successful LASIK surgeries with high precision",
-    },
-
-    {
-      id: 3,
-      title: "End-to-End Care ",
-      // desc: "From consultation to recovery, we’re with you at every step",
-    },
-
-    {
-      id: 4,
-      title: "Affordable EMI Plans",
-      // desc: "Easy payment options to fit your budget",
-    },
-
-    {
-      id: 5,
-      title: "Patient-First Approach",
-      // desc: "Comfort, safety, and satisfaction guaranteed",
-    },
-  ],
-
-  after_surgery: {
-    title: "How is Life After LASIK Surgery?",
-    desc1:
-      "Say NO to glasses, contact lenses, dryness, and constant eye strain.",
-    desc2:
-      " Say YES to clear, natural vision, complete freedom in sports and travel, and a confident new lifestyle.",
-    desc3:
-      "Get your LASIK done at Pixel Eye Hospital and step into a brighter, glasses-free tomorrow.",
-  },
-
-  Faq: [
-    {
-      id: 1,
-      question: "What is LASIK surgery?",
-      answer:
-        "LASIK is a safe, quick laser procedure that corrects vision problems like nearsightedness, farsightedness, and astigmatism, reducing or eliminating the need for glasses and contact lenses.",
-    },
-    {
-      id: 2,
-      question: "Is LASIK painful?",
-      answer:
-        "No. The procedure is virtually painless, and numbing eye drops are used. Most patients only feel mild pressure for a few seconds.",
-    },
-    {
-      id: 3,
-      question: "How long does LASIK take?",
-      answer:
-        "The surgery itself takes about 15 minutes for both eyes, and vision improvement is often noticeable within 24 hours.",
-    },
-    {
-      id: 4,
-      question: "Am I eligible for LASIK?",
-      answer:
-        "Most people above 18 with stable vision are eligible. However, eligibility depends on factors like eye power, corneal thickness, and overall eye health.",
-    },
-    {
-      id: 5,
-      question: "How soon can I resume normal activities?",
-      answer:
-        "Most patients return to daily activities within 24–48 hours, though strenuous activities may need a few more days of rest.",
-    },
-    {
-      id: 6,
-      question: "Does insurance cover LASIK?",
-      answer:
-        "Since LASIK is considered an elective procedure, it’s usually not covered by insurance. But we offer affordable EMI and flexible payment options at Pixel Eye Hospital.",
-    },
-  ],
-
   footer: {
     about:
       "In a world of technological advancements, where healthcare can sometimes feel impersonal, Pixel Eye Hospital stands apart as the beacon of genuine care",
@@ -199,8 +225,11 @@ export const HomeData = {
     address2:
       "Fourth Floor, Commercial Complex PNR Highnest, 1-2-22/PNRHN/3/B, Dharma Reddy Colony Phase II, Kukatpally Housing Board Colony, Hyderabad, Telangana 500085",
     number1: "070750 08561",
+    number1href: "tel:070750 08561",
     number2: "096504 63841",
+    number2href: "tel:096504 63841",
     email: "info@pixeleyehospitals.com",
+    emailhref: "mailto:info@pixeleyehospitals.com",
     vistis: [
       {
         id: 1,
@@ -219,26 +248,26 @@ export const HomeData = {
         id: 1,
         icon: "linkedin",
         link: "https://www.linkedin.com/company/pixel-eye-hospital/",
-        name : "Linked In"
+        name: "Linked In",
       },
       {
         id: 2,
         icon: "facebook",
         link: "https://www.facebook.com/pixeleyehospital/",
-        name : "Facebook"
+        name: "Facebook",
       },
       {
         id: 3,
         icon: "instagram",
         link: "https://www.instagram.com/pixeleyehospital/",
-        name : "Instagram"
+        name: "Instagram",
       },
 
       {
         id: 4,
         icon: "twitter",
         link: "https://x.com/pixel_hospital",
-        name : "Twitter"
+        name: "Twitter",
       },
     ],
   },

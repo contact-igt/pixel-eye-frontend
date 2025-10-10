@@ -30,7 +30,7 @@ const Button = ({
     <>
       {isicon && !suffix && <DynamicIcon name={icon} color={iconcolor} />}
       {isimg && imgicon && !suffix && (
-        <Image src={imgicon} width={20} height={20} alt={`${name}-icon`} />
+        <Image src={imgicon} width={24} height={24} alt={`${name}-icon`} />
       )}
       {name && <h6 className={`m-0 ${hideTextOnMobile ? styles.hideOnMobile : ''}`}>{name}</h6>}
       {isimg && imgicon && suffix && (

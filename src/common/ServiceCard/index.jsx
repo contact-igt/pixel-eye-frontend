@@ -23,7 +23,8 @@ const ServiceCard = ({ service, handleTogglecontactForm }) => {
           bgcolor="#ffffff"
           txtcolor="#153b56"
           border="1px solid #153b56"
-          handleTogglecontactForm={handleTogglecontactForm}
+          href={service.link}
+          target={"_blank"}
         />
       </div>
     </div>

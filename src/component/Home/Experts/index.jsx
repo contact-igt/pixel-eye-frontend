@@ -1,15 +1,15 @@
 import React from 'react';
 import styles from './styles.module.css';
-import { expertsData } from './constant';
 import DoctorCard from './DoctorCard';
+import { HomeData } from '@/constant/Home';
 
 const Experts = ({handleTogglecontactForm}) => {
   return (
     <section className={styles.expertsSection}>
       <div className="container-md">
-        <h2 className={styles.sectionTitle}>Meet Our Experts</h2>
+        <h2 className={styles.sectionTitle}>{HomeData?.expertData?.title}</h2>
         <div className={`row justify-content-center ${styles.cardGrid}`}>
-          {expertsData.map((expert) => (
+          {HomeData?.expertData?.expertsList.map((expert) => (
             <div className="col-lg-6 col-md-10" key={expert.id}>
               <DoctorCard expert={expert} handleTogglecontactForm={handleTogglecontactForm} />
             </div>
