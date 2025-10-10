@@ -33,7 +33,6 @@ const HomePageComponent = () => {
         <QuickAction handleTogglecontactForm={handleTogglecontactForm} />
         <Footer />
       </div>
-
       <Popup open={open} onClose={() => handleTogglecontactForm()}>
         <Form handleTogglecontactForm={handleTogglecontactForm} />
       </Popup>

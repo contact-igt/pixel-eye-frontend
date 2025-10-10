@@ -106,7 +106,7 @@ export const HomeData = {
   },
   wellnessData: {
     title: "WELLNESS CENTRE",
-    subTitle: "",
+    subTitle: "Comprehensive Eye & Wellness Checkups for a Clearer, Healthier You",
     wellnessImages: [
       {
         src: "/assets/gallery1.jpg",
@@ -115,22 +115,22 @@ export const HomeData = {
         src: "/assets/gallery2.jpg",
       },
       {
-        src: "/assets/gallery3.webp",
+        src: "/assets/gallery3.jpg",
       },
       {
         src: "/assets/gallery4.jpg",
       },
       {
-        src: "/assets/gallery5.webp",
+        src: "/assets/gallery5.jpg",
       },
       {
-        src: "/assets/gallery6.webp",
+        src: "/assets/gallery6.jpg",
       },
       {
-        src: "/assets/gallery7.webp",
+        src: "/assets/gallery7.jpg",
       },
       {
-        src: "/assets/gallery8.webp",
+        src: "/assets/gallery8.jpg",
       },
     ],
   },
