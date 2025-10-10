@@ -24,7 +24,7 @@ const Footer = () => {
 
             <div className={`${styles.textcontainer}`}>
               <p>{HomeData?.footer?.about}</p>
-              <h6>Read More ...</h6>
+              <a href="https://www.pixeleyehospitals.com/about-hospital.html" target="_blank">Read More ...</a>
             </div>
           </div>
           <div className="col-xl-4 col-lg-4 col-md-5 col-12 ">
@@ -95,8 +95,8 @@ const Footer = () => {
               <div
                 className={`${styles.numbertext} d-flex align-items-center gap-2  my-4`}
               >
-                <p>{HomeData?.footer?.number1}</p>
-                <p>{HomeData?.footer?.number2}</p>
+                <a href={HomeData?.footer?.number1href}>{HomeData?.footer?.number1}</a>
+                <a href={HomeData?.footer?.number2href}>{HomeData?.footer?.number2}</a>
               </div>
             </div>
 
@@ -107,7 +107,7 @@ const Footer = () => {
               <div
                 className={`${styles.emailtext} d-flex align-items-center gap-2 `}
               >
-                <p>{HomeData?.footer?.email}</p>
+                <a href={HomeData?.footer?.emailhref}>{HomeData?.footer?.email}</a>
               </div>
             </div>
           </div>
@@ -128,8 +128,8 @@ const Footer = () => {
               <div
                 className={`${styles.numbertext} d-flex align-items-center gap-2  my-4`}
               >
-                <p>{HomeData?.footer?.number1}</p>
-                <p>{HomeData?.footer?.number2}</p>
+                <a href={HomeData?.footer?.number1href}>{HomeData?.footer?.number1}</a>
+                <a href={HomeData?.footer?.number2href}>{HomeData?.footer?.number2}</a>
               </div>
             </div>
 
@@ -140,7 +140,7 @@ const Footer = () => {
               <div
                 className={`${styles.emailtext} d-flex align-items-center gap-2 `}
               >
-                <p>{HomeData?.footer?.email}</p>
+                <a href={HomeData?.footer?.emailhref}>{HomeData?.footer?.email}</a>
               </div>
             </div>
           </div>

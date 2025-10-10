@@ -1,87 +1,81 @@
 .footerWrapper {
-    padding: 80px 0px;
-    color: #ffff;
-    background-color: #153b56
+  padding: 80px 0px;
+  color: #ffff;
+  background-color: #153b56;
 }
 
-
-
-
 .imgcontainer img {
-    width: 150px;
-    height: 60px;
-    object-fit: cover;
-    background-color: #fff;
-    border-radius: 10px;
+  width: 150px;
+  height: 60px;
+  object-fit: cover;
+  background-color: #fff;
+  border-radius: 10px;
 }
 
 .textcontainer p {
-    font-size: 16px;
+  font-size: 16px;
 }
 
-.textcontainer h6 {
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
+.textcontainer a {
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+.textcontainer a:hover {
+  color: #fff;
 }
 
 .addresstext p,
-.numbertext p,
-.emailtext p,
+.numbertext a,
+.emailtext a,
 .visit p {
-    font-size: 14px;
+  font-size: 14px;
 }
-
+.numbertext a:hover,
+.emailtext a:hover {
+  color: #fff;
+}
 .addressWrapper {
-    width: 550px;
-    padding: 25px;
-    border-radius: 10px;
-    background-color: #7dbbe7ba;
+  width: 550px;
+  padding: 25px;
+  border-radius: 10px;
+  background-color: #7dbbe7ba;
 }
 
 .footertitle h6 {
-    font-size: 23px;
-    font-weight: 600;
+  font-size: 23px;
+  font-weight: 600;
 }
 
-.socilalink:hover{
-color: #fff;
+.socilalink:hover {
+  color: #fff;
 }
-
 
 @media (width < 1200px) {
-
-    .addressWrapper{
-        width: 400px;
-    }
-    
+  .addressWrapper {
+    width: 400px;
+  }
 }
-
 
 @media (width < 992px) {
+  .addressWrapper {
+    width: 320px;
+  }
 
-    .addressWrapper{
-        width: 320px;
-    }
-
-    .footerWrapper{
-        padding-top: 50px;
-        padding-bottom: 120px;
-    }
-    
+  .footerWrapper {
+    padding-top: 50px;
+    padding-bottom: 120px;
+  }
 }
 
-
-
 @media (width < 768px) {
+  .footertitle h6 {
+    font-size: 20px;
+  }
 
-    .footertitle h6{
-        font-size: 20px;
-    }
-
-    .addressWrapper{
-        width: 100%;
-        margin-bottom: 20px;
-    }
-    
+  .addressWrapper {
+    width: 100%;
+    margin-bottom: 20px;
+  }
 }

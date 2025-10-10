@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import styles from "./styles.module.css";
-import { excellenceData } from "./constant";
 import Button from "@/common/Button";
+import { HomeData } from "@/constant/Home";
 // import "slick-carousel/slick/slick.css";
 // import "slick-carousel/slick/slick-theme.css";
 
 const Excellence = ({ handleTogglecontactForm }) => {
-    const [slidesToShow, setSlidesToShow] = useState(5);
-    const [centerMode, setCenterMode] = useState(false);
+  const [slidesToShow, setSlidesToShow] = useState(5);
+  const [centerMode, setCenterMode] = useState(false);
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 992) {
@@ -53,14 +53,13 @@ const Excellence = ({ handleTogglecontactForm }) => {
     <section className={styles.excellenceSection}>
       <div className="container-md">
         <h2 className={styles.sectionTitle}>
-          Advanced Care for Every Eye Condition
+          {HomeData?.excellenceData?.title}
         </h2>
         <p className={styles.sectionSubtitle}>
-          Discover advanced treatments designed to address every vision
-          challenge, safely and effectively.
+          {HomeData?.excellenceData?.subTitle}
         </p>
         <Slider {...settings} className={styles.slider}>
-          {excellenceData.map((item) => (
+          {HomeData?.excellenceData?.excellenceDataList?.map((item) => (
             <a
               key={item.id}
               className={styles.slideItem}
@@ -70,11 +69,11 @@ const Excellence = ({ handleTogglecontactForm }) => {
             >
               <div className={styles.card}>
                 <div className={styles.iconWrapper}>
-                <img
-                  src={item.icon}
-                  alt={item.title}
-                  className={styles.cardIcon}
-                />
+                  <img
+                    src={item.icon}
+                    alt={item.title}
+                    className={styles.cardIcon}
+                  />
                 </div>
                 <p className={styles.cardTitle}>{item.title}</p>
               </div>
@@ -84,8 +83,8 @@ const Excellence = ({ handleTogglecontactForm }) => {
         <div className={styles.viewMoreContainer}>
           <Button
             isicon={true}
-            href={"tel:+917075008561"}
-            name="Call Now"
+            href={HomeData?.excellenceData?.button1href}
+            name={HomeData?.excellenceData?.button1text}
             bgcolor="#153b56"
             txtcolor="#fff"
             icon={"phone"}
@@ -95,7 +94,7 @@ const Excellence = ({ handleTogglecontactForm }) => {
           <Button
             isicon={true}
             handleTogglecontactForm={handleTogglecontactForm}
-            name="Book an Appointment"
+            name={HomeData?.excellenceData?.button2text}
             bgcolor="#f5a623"
             txtcolor="#000"
             icon={"calendar"}

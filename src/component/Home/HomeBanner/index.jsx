@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import styles from "./styles.module.css";
 import Button from "@/common/Button";
-import { bannerData } from "./constant";
+import { HomeData } from "@/constant/Home";
 import CountUp from "react-countup";
 import { useInView } from 'react-intersection-observer';
 import { useRouter } from "next/router";
 
-const HomeBanner = () => {
+const HomeBanner = ({ data }) => {
     const router = useRouter();
     const { ref, inView } = useInView({
         triggerOnce: true,
@@ -77,17 +77,16 @@ const HomeBanner = () => {
         }
     };
 
-
     return (
-        <div className={styles.bannerContainer} ref={ref}>
+        <div className={styles.bannerContainer}>
             <div className="container-md">
                 <div className="row align-items-center">
                     <div className="col-lg-6">
                         <div className={styles.bannerContent}>
-                            <h1>{bannerData.title}</h1>
-                            <p className={styles.subtitle}>{bannerData.subtitle}</p>
+                            <h1>{HomeData?.bannerData?.title}</h1>
+                            <p className={styles.subtitle}>{HomeData?.bannerData?.subtitle}</p>
                             <div className={styles.ctaContainer}>
-                                <p className={styles.appointmentText}>{bannerData.appointmentText}</p>
+                                <p className={styles.appointmentText}>{HomeData?.bannerData?.appointmentText}</p>
                                 <div className={styles.formContainer}>
                                     <div className="input-group">
                                         <span className="input-group-text bg-light border-end-0">+91</span>
@@ -100,30 +99,30 @@ const HomeBanner = () => {
                                             aria-label="Contact Number"
                                         />
                                     </div>
-                                    <Button disabled={loading} handleTogglecontactForm={handleSubmit} name={loading ? "Booking your callback… " : "Request a Callback"}bgcolor="#f5a623" txtcolor="#000" />
+                                    <Button disabled={loading} handleTogglecontactForm={handleSubmit} name={loading ? "Booking your callback… " : "Request a Callback"} bgcolor="#f5a623" txtcolor="#000" />
                                 </div>
                                 <div className={styles.error}>
                                     <p className="small" style={{ color: "#ff6f61" }}>{error}</p>
                                 </div>
                             </div>
-                            <div className={styles.statsContainer}>
+                            <div className={styles.statsContainer} ref={ref}>
                                 <div className={styles.statItem}>
-                                    <p className={styles.statValue}>{inView && <CountUp end={30} start={0} duration={2.5} />}+</p>
-                                    <p className={styles.statLabel}>Years of Trust</p>
+                                    <p className={styles.statValue}>{inView && <CountUp end={HomeData?.bannerData?.stat1value} start={0} duration={2.5} />}+</p>
+                                    <p className={styles.statLabel}>{HomeData?.bannerData?.stat1label}</p>
                                 </div>
                                 <div className={styles.statItem}>
-                                    <p className={styles.statValue}>{inView && <CountUp end={30} start={0} duration={2.5} />}+</p>
-                                    <p className={styles.statLabel}>Cities</p>
+                                    <p className={styles.statValue}>{inView && <CountUp end={HomeData?.bannerData?.stat2value} start={0} duration={2.5} />}+</p>
+                                    <p className={styles.statLabel}>{HomeData?.bannerData?.stat2label}</p>
                                 </div>
                                 <div className={styles.statItem}>
-                                    <p className={styles.statValue}>{inView && <CountUp end={85} start={0} duration={2.5} />}+</p>
-                                    <p className={styles.statLabel}>Eye Care Centres</p>
+                                    <p className={styles.statValue}>{inView && <CountUp end={HomeData?.bannerData?.stat3value} start={0} duration={2.5} />}+</p>
+                                    <p className={styles.statLabel}>{HomeData?.bannerData?.stat3label}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className="col-lg-6">
-                        <img src={bannerData.image} alt="Doctors" className={styles.bannerImage} />
+                        <img src={HomeData?.bannerData?.image} alt="Doctors" className={styles.bannerImage} />
                     </div>
                 </div>
             </div>

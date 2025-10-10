@@ -1,38 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import styles from "./styles.module.css";
+import { HomeData } from "@/constant/Home";
 // import 'slick-carousel/slick/slick.css';
 // import 'slick-carousel/slick/slick-theme.css';
 
 const MultiCheckup = () => {
   const [slidesToShow, setSlidesToShow] = useState(4);
   const [centerMode, setCenterMode] = useState(false);
-  const wellnessImages = [
-    {
-      src: "/assets/gallery1.jpg",
-    },
-    {
-      src: "/assets/gallery2.jpg",
-    },
-    {
-      src: "/assets/gallery3.webp",
-    },
-    {
-      src: "/assets/gallery4.jpg",
-    },
-    {
-      src: "/assets/gallery5.webp",
-    },
-    {
-      src: "/assets/gallery6.webp",
-    },
-    {
-      src: "/assets/gallery7.webp",
-    },
-    {
-      src: "/assets/gallery8.webp",
-    },
-  ];
 
   useEffect(() => {
     const handleResize = () => {
@@ -77,13 +52,13 @@ const MultiCheckup = () => {
   return (
     <section className={styles.gallerysection}>
       <div className={styles.gallery}>
-          <h2 className={styles.sectionTitle}>WELLNESS CENTRE</h2>
-          <p className={styles.sectionSubtitle}>
-            Personalized Multi Disciplinary Health Checkup
-          </p>
+        <h2 className={styles.sectionTitle}>{HomeData?.wellnessData?.title}</h2>
+        <p className={styles.sectionSubtitle}>
+          {HomeData?.wellnessData?.subTitle}
+        </p>
         <div className="mt-5">
           <Slider key={slidesToShow} {...settings} className={styles.sliderWrapper}>
-            {wellnessImages.map((data) => (
+            {HomeData?.wellnessData?.wellnessImages.map((data) => (
               <div key={data.id} className={styles.imgcard}>
                 <img src={data.src} alt="gallery" className="img-fluid" />
               </div>
