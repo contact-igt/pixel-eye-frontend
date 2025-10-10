@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import styles from "./styles.module.css";
 import { excellenceData } from "./constant";
@@ -7,38 +7,46 @@ import Button from "@/common/Button";
 // import "slick-carousel/slick/slick-theme.css";
 
 const Excellence = ({ handleTogglecontactForm }) => {
+    const [slidesToShow, setSlidesToShow] = useState(5);
+    const [centerMode, setCenterMode] = useState(false);
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 992) {
+        setSlidesToShow(5);
+        setCenterMode(false);
+      } else if (window.innerWidth > 700) {
+        setSlidesToShow(3);
+        setCenterMode(false);
+      } else if (window.innerWidth <= 700 && window.innerWidth > 576) {
+        setSlidesToShow(2);
+        setCenterMode(false);
+      } else {
+        setSlidesToShow(1);
+        setCenterMode(true);
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const settings = {
     dots: false,
-    infinite: false,
+    infinite: true,
     speed: 500,
-    slidesToShow: 5,
+    slidesToShow: slidesToShow,
     slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 1024, // For screens up to 1024px wide
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 768, // For screens up to 768px wide
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 480, // For screens up to 480px wide
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
+    centerMode: centerMode,
+    centerPadding: centerMode ? "0px" : "10px",
+    autoplay: false,
+    arrows: true,
+    autoplaySpeed: 0,
+    cssEase: "linear",
+    pauseOnHover: true,
   };
 
   return (
@@ -61,11 +69,13 @@ const Excellence = ({ handleTogglecontactForm }) => {
               onClick={!item.link ? handleTogglecontactForm : undefined}
             >
               <div className={styles.card}>
+                <div className={styles.iconWrapper}>
                 <img
                   src={item.icon}
                   alt={item.title}
                   className={styles.cardIcon}
                 />
+                </div>
                 <p className={styles.cardTitle}>{item.title}</p>
               </div>
             </a>
