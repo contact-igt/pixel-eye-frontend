@@ -39,6 +39,30 @@ const HomeBanner = ({ data }) => {
             setLoading(true);
             const ipResponse = await fetch("https://api.ipify.org?format=json");
             const ipData = await ipResponse.json();
+            const registerFormData = {
+                name: formData?.PatientName,
+                mobile: formData.MobileNumber,
+                ip_address: ipData.ip,
+                utm_source: localStorage.getItem("utm_source"),
+                page_name: "sanathnagar",
+            }
+
+            const registerResponse = await fetch(
+                "https://stageapi.invictusglobaltech.com/api/v1/pixel-eye",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded",
+                    },
+                    body: new URLSearchParams(registerFormData).toString(),
+                }
+            );
+
+            if (!registerResponse.ok) {
+                setError("Something went wrong. Please try again.");
+                setLoading(false);
+                return;
+            }
             const newFormData = {
                 PatientName: "",
                 MobileNumber: formData.MobileNumber,
