@@ -34,12 +34,43 @@ const Form = ({ handleTogglecontactForm }) => {
       setLoading(true);
       const ipResponse = await fetch("https://api.ipify.org?format=json");
       const ipData = await ipResponse.json();
+      const registerFormData = {
+        name: formData?.PatientName,
+        mobile: formData.MobileNumber,
+        ip_address: ipData.ip,
+        utm_source: localStorage.getItem("utm_source"),
+        page_name: "sanathnagar",
+      }
+      const APISERVER =
+        process.env.NEXT_PUBLIC_API_SERVER === "production"
+          ? process.env.NEXT_PUBLIC_PRODUCTION_API_URL
+          : process.env.NEXT_PUBLIC_API_SERVER === "stage"
+            ? process.env.NEXT_PUBLIC_STAGE_API_URL
+            : process.env.NEXT_PUBLIC_LOCALHOST_API_URL;
+      const registerResponse = await fetch(
+        `${APISERVER}/pixel-eye`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: new URLSearchParams(registerFormData).toString(),
+        }
+      );
+
+      if (!registerResponse.ok) {
+        setError("Something went wrong. Please try again.");
+        setLoading(false);
+        return;
+      }
+
       const newFormData = {
         PatientName: formData?.PatientName,
         MobileNumber: formData.MobileNumber,
         IP_Address: ipData.ip,
         utm_source: localStorage.getItem("utm_source"),
       }
+
       const response = await fetch(
         "https://script.google.com/macros/s/AKfycbxz-HpoU7v381Q8g38S7ZTO9A6BvyHJVTQUcsOx0g-DteQ7tr3RiKzOVpypzgPEmZrp/exec",
         {

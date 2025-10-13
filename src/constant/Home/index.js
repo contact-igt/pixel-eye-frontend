@@ -2,7 +2,8 @@ export const HomeData = {
   bannerData: {
     title: "Welcome to Pixel Eye Hospital",
     subtitle:
-      "Join thousands who’ve restored their sight with Pixel Eye Hospital’s expert Doctors and Surgeons. Now with 2 Branches- Kukatpally & Sanath Nagar",
+      "Join thousands who’ve restored their sight with Pixel Eye Hospital’s expert Doctors and Surgeons",
+    branch: "Now with 2 Branches- Kukatpally & Sanath Nagar",
     stat1value: "30",
     stat1label: "Years of Trust",
     stat2value: "30",
@@ -12,6 +13,7 @@ export const HomeData = {
     appointmentText: "To book an appointment",
     image: "/assets/bannerImage.jpg",
   },
+
   excellenceData: {
     title: "Advanced Care for Every Eye Condition",
     subTitle:
@@ -106,7 +108,8 @@ export const HomeData = {
   },
   wellnessData: {
     title: "WELLNESS CENTRE",
-    subTitle: "",
+    subTitle:
+      "Comprehensive Eye & Wellness Checkups for a Clearer, Healthier You",
     wellnessImages: [
       {
         src: "/assets/gallery1.jpg",
@@ -115,27 +118,27 @@ export const HomeData = {
         src: "/assets/gallery2.jpg",
       },
       {
-        src: "/assets/gallery3.webp",
+        src: "/assets/gallery3.jpg",
       },
       {
         src: "/assets/gallery4.jpg",
       },
       {
-        src: "/assets/gallery5.webp",
+        src: "/assets/gallery5.jpg",
       },
       {
-        src: "/assets/gallery6.webp",
+        src: "/assets/gallery6.jpg",
       },
       {
-        src: "/assets/gallery7.webp",
+        src: "/assets/gallery7.jpg",
       },
       {
-        src: "/assets/gallery8.webp",
+        src: "/assets/gallery8.jpg",
       },
     ],
   },
   expertData: {
-    title: "Meet Our Experts",
+    title: "Meet Our Doctors",
     expertsList: [
       {
         id: 1,
@@ -193,6 +196,15 @@ export const HomeData = {
           "Protect your vision with early detection and advanced glaucoma care. We offer laser, medication, and microsurgical options to control eye pressure and prevent optic nerve damage.",
         image: "/assets/glaucomaService.jpg",
         link: "https://glaucoma.pixeleyehospitals.com/",
+        newlyLaunched: false,
+      },
+      {
+        id: 5,
+        title: "Retina",
+        description:
+          "Retina treatments include advanced procedures such as intravitreal injections, laser therapy, and vitrectomy surgery that help manage retinal diseases like diabetic retinopathy, retinal detachment, and macular degeneration.",
+        image: "/assets/retina.jpg",
+        link: "https://retina.pixeleyehospitals.com/",
         newlyLaunched: false,
       },
     ],

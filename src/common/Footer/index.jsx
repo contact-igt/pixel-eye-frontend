@@ -24,7 +24,12 @@ const Footer = () => {
 
             <div className={`${styles.textcontainer}`}>
               <p>{HomeData?.footer?.about}</p>
-              <a href="https://www.pixeleyehospitals.com/about-hospital.html" target="_blank">Read More ...</a>
+              <a
+                href="https://www.pixeleyehospitals.com/about-hospital.html"
+                target="_blank"
+              >
+                Read More ...
+              </a>
             </div>
           </div>
           <div className="col-xl-4 col-lg-4 col-md-5 col-12 ">
@@ -72,7 +77,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="container mt-lg-5 mt-4">
+      <div className="container mt-lg-5 mt-4" id="addressSection">
         <div className={`${styles.footertitle} text-md-center text-start `}>
           <h6>Reach Us</h6>
         </div>
@@ -95,8 +100,12 @@ const Footer = () => {
               <div
                 className={`${styles.numbertext} d-flex align-items-center gap-2  my-4`}
               >
-                <a href={HomeData?.footer?.number1href}>{HomeData?.footer?.number1}</a>
-                <a href={HomeData?.footer?.number2href}>{HomeData?.footer?.number2}</a>
+                <a href={HomeData?.footer?.number1href}>
+                  {HomeData?.footer?.number1}
+                </a>
+                <a href={HomeData?.footer?.number2href}>
+                  {HomeData?.footer?.number2}
+                </a>
               </div>
             </div>
 
@@ -107,10 +116,13 @@ const Footer = () => {
               <div
                 className={`${styles.emailtext} d-flex align-items-center gap-2 `}
               >
-                <a href={HomeData?.footer?.emailhref}>{HomeData?.footer?.email}</a>
+                <a href={HomeData?.footer?.emailhref}>
+                  {HomeData?.footer?.email}
+                </a>
               </div>
             </div>
           </div>
+
           <div className={styles.addressWrapper}>
             <div className={`${styles.address} d-flex align-items-start gap-2`}>
               <div className={styles.addresspin}>
@@ -128,8 +140,12 @@ const Footer = () => {
               <div
                 className={`${styles.numbertext} d-flex align-items-center gap-2  my-4`}
               >
-                <a href={HomeData?.footer?.number1href}>{HomeData?.footer?.number1}</a>
-                <a href={HomeData?.footer?.number2href}>{HomeData?.footer?.number2}</a>
+                <a href={HomeData?.footer?.number1href}>
+                  {HomeData?.footer?.number1}
+                </a>
+                <a href={HomeData?.footer?.number2href}>
+                  {HomeData?.footer?.number2}
+                </a>
               </div>
             </div>
 
@@ -140,7 +156,9 @@ const Footer = () => {
               <div
                 className={`${styles.emailtext} d-flex align-items-center gap-2 `}
               >
-                <a href={HomeData?.footer?.emailhref}>{HomeData?.footer?.email}</a>
+                <a href={HomeData?.footer?.emailhref}>
+                  {HomeData?.footer?.email}
+                </a>
               </div>
             </div>
           </div>

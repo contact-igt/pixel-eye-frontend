@@ -6,16 +6,16 @@ import { HomeData } from "@/constant/Home";
 // import 'slick-carousel/slick/slick-theme.css';
 
 const MultiCheckup = () => {
-  const [slidesToShow, setSlidesToShow] = useState(4);
+  const [slidesToShow, setSlidesToShow] = useState(3);
   const [centerMode, setCenterMode] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 992) {
-        setSlidesToShow(4);
+        setSlidesToShow(3);
         setCenterMode(false);
       } else if (window.innerWidth > 700) {
-        setSlidesToShow(3);
+        setSlidesToShow(2.5);
         setCenterMode(false);
       } else if (window.innerWidth <= 700 && window.innerWidth > 576) {
         setSlidesToShow(2);

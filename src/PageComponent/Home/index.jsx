@@ -19,11 +19,18 @@ const HomePageComponent = () => {
     setOpen(!open);
   };
 
+  const handleScrollToAddress = () => {
+    const addressSection = document.getElementById("addressSection");
+    if (addressSection) {
+      addressSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <>
       <div className="p-0 position-relative">
         <Header handleTogglecontactForm={handleTogglecontactForm} />
-        <HomeBanner />
+        <HomeBanner handleScrollToAddress={handleScrollToAddress} />
         <Excellence handleTogglecontactForm={handleTogglecontactForm} />
         <Testimonials />
         <MultiCheckup />
@@ -33,7 +40,6 @@ const HomePageComponent = () => {
         <QuickAction handleTogglecontactForm={handleTogglecontactForm} />
         <Footer />
       </div>
-
       <Popup open={open} onClose={() => handleTogglecontactForm()}>
         <Form handleTogglecontactForm={handleTogglecontactForm} />
       </Popup>

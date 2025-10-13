@@ -46,10 +46,12 @@
   border-radius: 8px;
   font-size: 1rem;
 }
-.error{
+
+.error {
   margin-top: 3px;
   height: 8px;
 }
+
 .statsContainer {
   display: flex;
   gap: 2.3rem;
@@ -62,18 +64,22 @@
   text-align: center;
   width: 160px;
 }
-.inputGroup input{
+
+.inputGroup input {
   width: 100px !important;
 }
+
 .statValue {
   font-size: 2.8rem;
   font-weight: 700;
   color: #153b56;
   margin: 0;
 }
-.formContainer button{
-   white-space: nowrap !important;
+
+.formContainer button {
+  white-space: nowrap !important;
 }
+
 .statLabel {
   font-size: 1.1rem;
   color: #23527c;
@@ -85,6 +91,14 @@
   height: 490px;
   border-radius: 1rem;
   object-fit: cover;
+}
+
+.branchtitle {
+  font-size: 1.2rem;
+  color: #153b56;
+  margin-top: -10px;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 /* Responsive */
@@ -178,6 +192,27 @@
   .subtitle {
     font-size: 1rem;
   }
+
+  .branchtitle {
+    font-size: 1rem;
+  }
+
+  .bannerContent {
+    text-align: start;
+  }
+
+  .statLabel {
+    font-size: 0.8rem;
+  }
+
+  .statItem {
+    width: 110px;
+  }
+
+  .statValue {
+    font-size: 2rem;
+  }
+
 }
 
 @media (width < 576px) {
