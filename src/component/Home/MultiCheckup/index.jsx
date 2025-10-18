@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import styles from "./styles.module.css";
 import { HomeData } from "@/constant/Home";
+import Button from "@/common/Button";
 // import 'slick-carousel/slick/slick.css';
 // import 'slick-carousel/slick/slick-theme.css';
 
-const MultiCheckup = () => {
+const MultiCheckup = ({ handleTogglecontactForm }) => {
   const [slidesToShow, setSlidesToShow] = useState(3);
   const [centerMode, setCenterMode] = useState(false);
 
@@ -57,7 +58,11 @@ const MultiCheckup = () => {
           {HomeData?.wellnessData?.subTitle}
         </p>
         <div className="mt-5">
-          <Slider key={slidesToShow} {...settings} className={styles.sliderWrapper}>
+          <Slider
+            key={slidesToShow}
+            {...settings}
+            className={styles.sliderWrapper}
+          >
             {HomeData?.wellnessData?.wellnessImages.map((data) => (
               <div key={data.id} className={styles.imgcard}>
                 <img src={data.src} alt="gallery" className="img-fluid" />
@@ -65,6 +70,27 @@ const MultiCheckup = () => {
             ))}
           </Slider>
         </div>
+      </div>
+      <div className={styles.viewMoreContainer}>
+        <Button
+          isicon={true}
+          href={HomeData?.excellenceData?.button1href}
+          name={HomeData?.excellenceData?.button1text}
+          bgcolor="#ffff"
+          txtcolor="#153b56"
+          icon={"phone"}
+          iconcolor={"#153b56"}
+        />
+
+        <Button
+          isicon={true}
+          handleTogglecontactForm={handleTogglecontactForm}
+          name={HomeData?.excellenceData?.button2text}
+          bgcolor="#f5a623"
+          txtcolor="#000"
+          icon={"calendar"}
+          iconcolor={"#000"}
+        />
       </div>
     </section>
   );

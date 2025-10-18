@@ -107,7 +107,7 @@ export const HomeData = {
     ],
   },
   wellnessData: {
-    title: "WELLNESS CENTRE",
+    title: "Inside Our Eye Care Facility",
     subTitle:
       "Comprehensive Eye & Wellness Checkups for a Clearer, Healthier You",
     wellnessImages: [
@@ -213,7 +213,7 @@ export const HomeData = {
     {
       title: "Book an Appointment",
       icon: "calendar-clock",
-      description: "+91 40 4244 4222",
+      description: "+917075008561",
       link: "",
     },
     {

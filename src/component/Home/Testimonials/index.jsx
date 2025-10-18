@@ -4,8 +4,9 @@ import Slider from "react-slick";
 import styles from "./styles.module.css";
 import { Popup } from "@/common/Popup";
 import { HomeData } from "@/constant/Home";
+import Button from "@/common/Button";
 
-const Testimonials = ({ data }) => {
+const Testimonials = ({ data, handleTogglecontactForm }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [slidesToShow, setSlidesToShow] = useState(3);
@@ -16,10 +17,10 @@ const Testimonials = ({ data }) => {
       if (window.innerWidth > 992) {
         setSlidesToShow(3);
         setCenterMode(false);
-      }else if(window.innerWidth > 700){
+      } else if (window.innerWidth > 700) {
         setSlidesToShow(2);
         setCenterMode(false);
-      }  else if (window.innerWidth <= 700 && window.innerWidth > 576) {
+      } else if (window.innerWidth <= 700 && window.innerWidth > 576) {
         setSlidesToShow(1.5);
         setCenterMode(false);
       } else {
@@ -57,24 +58,39 @@ const Testimonials = ({ data }) => {
   };
   return (
     <section className={styles.testimonialSection}>
-      <h2 className={styles.sectionTitle}>{HomeData?.testimonialData?.title}</h2>
+      <h2 className={styles.sectionTitle}>
+        {HomeData?.testimonialData?.title}
+      </h2>
       <div className={styles.testimonialContainer}>
         <Slider
           key={slidesToShow + (centerMode ? "c" : "")}
           {...settings}
           className={styles.sliderWrapper}
         >
-          {HomeData?.testimonialData?.testimonialContents?.map((item, index) => (
-            <TestimonialCard
-              key={index}
-              imageSrc={item?.imageSrc || item?.image}
-              openModal={() => openModal(item.videoUrl)}
-              name={item?.name}
-              testimonial={item?.testimonial}
-              surgery={item?.surgery}
-            />
-          ))}
+          {HomeData?.testimonialData?.testimonialContents?.map(
+            (item, index) => (
+              <TestimonialCard
+                key={index}
+                imageSrc={item?.imageSrc || item?.image}
+                openModal={() => openModal(item.videoUrl)}
+                name={item?.name}
+                testimonial={item?.testimonial}
+                surgery={item?.surgery}
+              />
+            )
+          )}
         </Slider>
+      </div>
+      <div className="d-flex justify-content-center">
+        <Button
+          isicon={true}
+          handleTogglecontactForm={handleTogglecontactForm}
+          name={"Book an Appoinment"}
+          bgcolor="#f5a623"
+          txtcolor="#000"
+          icon={"calendar"}
+          iconcolor={"#000"}
+        />
       </div>
       <Popup open={isModalOpen} onClose={closeModal} variant="video">
         <button
