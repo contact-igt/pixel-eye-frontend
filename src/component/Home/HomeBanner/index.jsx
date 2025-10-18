@@ -3,6 +3,7 @@ import styles from "./styles.module.css";
 import Button from "@/common/Button";
 import { HomeData } from "@/constant/Home";
 import CountUp from "react-countup";
+import emailjs from "emailjs-com";
 import { useInView } from "react-intersection-observer";
 import { useRouter } from "next/router";
 
@@ -83,7 +84,7 @@ const HomeBanner = ({ data, handleScrollToAddress }) => {
         }
       );
       await emailjs.send(
-        "service_wy9rlgc",
+        "service_wiw9jr5",
         "template_gr9dlqd",
         {
           patient_name: formData.PatientName || "Guest Patient",
