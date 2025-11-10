@@ -32,8 +32,8 @@ const HomePageComponent = () => {
         <Header handleTogglecontactForm={handleTogglecontactForm} />
         <HomeBanner handleScrollToAddress={handleScrollToAddress} />
         <Excellence handleTogglecontactForm={handleTogglecontactForm} />
-        <Testimonials />
-        <MultiCheckup />
+        <Testimonials handleTogglecontactForm={handleTogglecontactForm} />
+        <MultiCheckup handleTogglecontactForm={handleTogglecontactForm} />
         <Experts handleTogglecontactForm={handleTogglecontactForm} />
         <Services handleTogglecontactForm={handleTogglecontactForm} />
         <FooterCTA handleTogglecontactForm={handleTogglecontactForm} />
