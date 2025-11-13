@@ -144,7 +144,7 @@ export const HomeData = {
         id: 1,
         name: "Dr. Abdul Rasheed",
         qualifications: "MD - AIIMS Cataract, Refractive & Squint Surgeon",
-        experience: "25 Years",
+        experience: "15 Years",
         reviews: "97%",
         image: "/assets/dr-abdul-rasheed.png",
       },
@@ -153,7 +153,7 @@ export const HomeData = {
         name: "Dr. Krishna Poojita",
         qualifications:
           "MBBS, DNB (Ophthalmology), MRCS (Edinburgh), FICO (UK)",
-        experience: "25 Years",
+        experience: "13 Years",
         reviews: "97%",
         image: "/assets/dr-krishna-poojita.png",
       },
