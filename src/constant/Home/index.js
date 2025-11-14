@@ -87,7 +87,7 @@ export const HomeData = {
       {
         id: 3,
         name: "Our patient",
-        surgery: "Cataract Surgery",
+        surgery: "Squint Surgery",
         testimonial:
           "I had been struggling with health issues for more than 40 years. After receiving treatment, I experienced a remarkable improvement — it truly feels like a new beginning. The doctors and staff showed great care and support throughout my recovery journey. Today, I feel healthier, more confident, and grateful for the positive changes this treatment has brought to my life.",
         videoUrl:
