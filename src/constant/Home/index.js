@@ -72,7 +72,7 @@ export const HomeData = {
           "I was diagnosed with cataracts about a year ago and was advised to have surgery within six months to a year. On my friends’ recommendation, I visited Dr. Poojita, who had successfully operated on their eyes. The surgery took only about 15 minutes and was completely smooth. After using the prescribed eye drops, my vision became clear, and I no longer need reading glasses. It feels like a rebirth for my eyesight—I’m truly grateful for the excellent care and the clarity I’ve regained.",
         image: "/assets/testimonialImage1.png",
         videoUrl:
-          "https://www.youtube.com/embed/iRWjw7FFzss?si=_LlxFRiQW468Af84",
+          "https://res.cloudinary.com/dnttl4dnz/video/upload/v1763098222/catract7_qf81jw.mp4",
       },
       {
         id: 2,
@@ -82,7 +82,7 @@ export const HomeData = {
           "I came to Hyderabad from South Sudan with my mother for her eye treatment at Pixel Hospitals. From the moment we arrived, the staff welcomed us with kindness and humility, making us feel at home. Dr. Pja explained every detail about the cataract surgery clearly and patiently. The cost was very affordable, even though we had financial limitations. After the surgery, my mother’s vision improved greatly—she can see clearly again. We are truly thankful to Pixel Hospitals and Dr. Pja for their excellent care. I highly recommend this hospital to anyone looking for quality eye treatment in Hyderabad.",
         imageSrc: "/assets/testimonialImage2.png",
         videoUrl:
-          "https://www.youtube.com/embed/JGXsahnIBEA?si=6OvkgPojalx5l9dK",
+          "https://res.cloudinary.com/dnttl4dnz/video/upload/v1764078537/cataract_testimonal_boazlg.mp4",
       },
       {
         id: 3,
@@ -91,7 +91,7 @@ export const HomeData = {
         testimonial:
           "I had been struggling with health issues for more than 40 years. After receiving treatment, I experienced a remarkable improvement — it truly feels like a new beginning. The doctors and staff showed great care and support throughout my recovery journey. Today, I feel healthier, more confident, and grateful for the positive changes this treatment has brought to my life.",
         videoUrl:
-          "https://www.youtube.com/embed/MCiL5Xxlkk4?si=XgyxLvfXs_axXoto",
+          "https://res.cloudinary.com/dnttl4dnz/video/upload/v1763040200/squint4_f18ipn.mp4",
         imageSrc: "/assets/testimonialImage3.png",
       },
       {
@@ -101,7 +101,7 @@ export const HomeData = {
         testimonial:
           "I had been wearing glasses since my school days — nearly 15 years of constant dependency from morning till night. My power had increased to -6.5D, and I always wished I could see clearly without glasses. After following Dr. Abdul Rasheed’s videos on YouTube, I decided to visit Pixel Eye Hospital. Dr. Rasheed and his team guided me through every step and suggested SMILE surgery.",
         videoUrl:
-          "https://www.youtube.com/embed/EqFa79PiI4U?si=bL_XBGSdPXJCXFxo",
+          "https://res.cloudinary.com/dnttl4dnz/video/upload/v1763040179/lasik3_e50rle.mp4",
         imageSrc: "/assets/testimonialImage4.png",
       },
     ],
@@ -143,17 +143,19 @@ export const HomeData = {
       {
         id: 1,
         name: "Dr. Abdul Rasheed",
-        qualifications: "MD - AIIMS Cataract, Refractive & Squint Surgeon",
-        experience: "12 Years",
+        qualifications1: "MD - AIIMS Cataract,",
+        qualifications2: "Refractive & Squint Surgeon",
+        experience: "15 Years",
         reviews: "97%",
         image: "/assets/dr-abdul-rasheed.png",
       },
       {
         id: 2,
         name: "Dr. Krishna Poojita",
-        qualifications:
-          "MBBS, DNB (Ophthalmology), MRCS (Edinburgh), FICO (UK)",
-        experience: "15 Years",
+        qualifications1:
+          "MBBS, DNB (Ophthalmology),",
+        qualifications2: "MRCS (Edinburgh), FICO (UK)",
+        experience: "13 Years",
         reviews: "97%",
         image: "/assets/dr-krishna-poojita.png",
       },
@@ -166,7 +168,7 @@ export const HomeData = {
         id: 1,
         title: "Cataract Eye Surgery",
         description:
-          "Experience quick, painless cataract removal for clearer, brighter vision. Our advanced lens implants are tailored to your visual and lifestyle needs, helping you see the world anew",
+          "Experience quick, painless cataract removal for clearer, brighter vision. Our advanced lens implants are tailored to your visual and lifestyle needs, helping you see the world anew.",
         image: "/assets/cataractService.jpg",
         link: "https://cataracts.pixeleyehospitals.com/",
         newlyLaunched: false,

@@ -103,16 +103,17 @@ const Testimonials = ({ data, handleTogglecontactForm }) => {
         </button>
         {selectedVideo && selectedVideo.includes("youtube.com") ? (
           <iframe
+           key={selectedVideo + isModalOpen}
             width="100%"
             height="450"
-            src={selectedVideo + "?autoplay=1"}
+            src={selectedVideo + "?autoplay=1&mute=1"}
             title="YouTube video"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           ></iframe>
         ) : selectedVideo ? (
-          <video width="100%" height="auto" controls autoPlay>
+          <video  key={selectedVideo + isModalOpen} width="100%" height="480px" controls autoPlay>
             <source src={selectedVideo} type="video/mp4" />
             Your browser does not support the video tag.
           </video>

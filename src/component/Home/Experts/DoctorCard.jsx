@@ -3,18 +3,21 @@ import styles from "./styles.module.css";
 import Button from "@/common/Button";
 import { ThumbsUp, Briefcase } from "lucide-react";
 
-const DoctorCard = ({ expert , handleTogglecontactForm }) => {
+const DoctorCard = ({ expert, handleTogglecontactForm }) => {
   return (
     <div className={styles.doctorCard}>
-      <img
-        src={expert.image}
-        alt={expert.name}
-        className={styles.doctorImage}
-      />
+      <div className={styles.imageContent}>
+        <img
+          src={expert.image}
+          alt={expert.name}
+          className={styles.doctorImage}
+        />
+      </div>
       <div className={styles.cardContent}>
         <div>
           <h3 className={styles.doctorName}>{expert.name}</h3>
-          <p className={styles.doctorQualifications}>{expert.qualifications}</p>
+          <p className={styles.doctorQualifications1}>{expert.qualifications1}</p>
+          <p className={styles.doctorQualifications2}>{expert.qualifications2}</p>
           <div className={styles.doctorStats}>
             <div className={styles.statItem}>
               <div className="d-flex gap-2">
