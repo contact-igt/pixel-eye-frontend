@@ -33,6 +33,7 @@
   width: 800px;
   /* more space for video */
   max-width: 95%;
+  max-height: 600px;
   background: #000;
   /* black background for video */
   border-radius: 12px;

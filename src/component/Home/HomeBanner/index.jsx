@@ -183,7 +183,7 @@ const HomeBanner = ({ data, handleScrollToAddress }) => {
                         duration={2.5}
                       />
                     )}
-                    L+
+                    &nbsp;Lakh+
                   </p>
                   <p className={styles.statLabel}>
                     {HomeData?.bannerData?.stat2label}

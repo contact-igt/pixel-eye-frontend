@@ -3,19 +3,19 @@
 }
 
 .logo {
-  max-width: 200px;
+  max-width: 180px;
 }
 
 /* Responsive */
 @media (width < 1400px) {
   .logo {
-    max-width: 180px;
+    max-width: 160px;
   }
 }
 
 @media (width < 1200px) {
   .logo {
-    max-width: 160px;
+    max-width: 150px;
   }
 }
 
