@@ -62,7 +62,7 @@ const Footer = () => {
                   <h6>Follow Us</h6>
                 </div>
                 {HomeData?.footer?.socilalink?.map((data, i) => (
-                  <a href={data?.link}>
+                  <a href={data?.link} key={i}>
                     <div
                       className={`${styles.socilalink} d-flex align-items-center gap-2 my-4`}
                     >

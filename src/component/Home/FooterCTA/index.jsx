@@ -7,8 +7,8 @@ const FooterCTA = ({ handleTogglecontactForm }) => {
   return (
     <div className={styles.footerCTA}>
       {
-        HomeData?.footerCTAData?.map((item) => (
-          <a href={item?.link ? item.link : undefined} onClick={(e) => {
+        HomeData?.footerCTAData?.map((item,index) => (
+          <a key={index} href={item?.link ? item.link : undefined} onClick={(e) => {
             if (!item?.link) {
               e.preventDefault();
               handleTogglecontactForm();
