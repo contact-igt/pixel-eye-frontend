@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import styles from "./styles.module.css";
 import Button from "@/common/Button";
 import { HomeData } from "@/constant/Home";
+import Image from "next/image";
 // import "slick-carousel/slick/slick.css";
 // import "slick-carousel/slick/slick-theme.css";
 
@@ -69,11 +70,16 @@ const Excellence = ({ handleTogglecontactForm }) => {
             >
               <div className={styles.card}>
                 <div className={styles.iconWrapper}>
-                  <img
-                    src={item.icon}
-                    alt={item.title}
-                    className={styles.cardIcon}
-                  />
+                  <div style={{ position: "relative", width: "60px", height: "60px" }}>
+                    <Image
+                      src={item.icon}
+                      alt={item.title}
+                      fill
+                      loading="lazy"
+                      sizes="60px"
+                      style={{ objectFit: "contain" }}
+                    />
+                  </div>
                 </div>
                 <p className={styles.cardTitle}>{item.title}</p>
               </div>

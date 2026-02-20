@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import styles from "./styles.module.css";
 import { DynamicIcon } from "lucide-react/dynamic";
@@ -19,6 +20,11 @@ const Button = ({
   suffix,
   hideTextOnMobile,
 }) => {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const buttonStyle = {
     backgroundColor: bgcolor,
     color: txtcolor,
@@ -28,7 +34,7 @@ const Button = ({
 
   const content = (
     <>
-      {isicon && !suffix && <DynamicIcon name={icon} color={iconcolor} />}
+      {mounted && isicon && !suffix && <DynamicIcon name={icon} color={iconcolor} />}
       {isimg && imgicon && !suffix && (
         <Image src={imgicon} width={24} height={24} alt={`${name}-icon`} />
       )}
@@ -36,7 +42,7 @@ const Button = ({
       {isimg && imgicon && suffix && (
         <Image src={imgicon} width={20} height={20} alt={`${name}-icon`} />
       )}
-      {isicon && suffix && <DynamicIcon name={icon} color={iconcolor} />}
+      {mounted && isicon && suffix && <DynamicIcon name={icon} color={iconcolor} />}
     </>
   );
 

@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import styles from "./styles.module.css";
 import { HomeData } from "@/constant/Home";
 import Button from "@/common/Button";
+import Image from "next/image";
 // import 'slick-carousel/slick/slick.css';
 // import 'slick-carousel/slick/slick-theme.css';
 
@@ -65,7 +66,16 @@ const MultiCheckup = ({ handleTogglecontactForm }) => {
           >
             {HomeData?.wellnessData?.wellnessImages.map((data) => (
               <div key={data.id} className={styles.imgcard}>
-                <img src={data.src} alt="gallery" className="img-fluid" />
+                <div style={{ position: "relative", width: "100%", height: "250px" }}>
+                  <Image
+                    src={data.src}
+                    alt={data.alt || "Gallery image"}
+                    fill
+                    loading="lazy"
+                    sizes="(max-width: 576px) 100vw, (max-width: 992px) 50vw, 33vw"
+                    style={{ objectFit: "cover" }}
+                  />
+                </div>
               </div>
             ))}
           </Slider>

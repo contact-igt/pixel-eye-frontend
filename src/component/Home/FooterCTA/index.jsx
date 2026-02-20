@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./styles.module.css";
 import { DynamicIcon } from "lucide-react/dynamic";
 import { HomeData } from "@/constant/Home";
 
 const FooterCTA = ({ handleTogglecontactForm }) => {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   return (
     <div className={styles.footerCTA}>
       {
-        HomeData?.footerCTAData?.map((item,index) => (
+        HomeData?.footerCTAData?.map((item, index) => (
           <a key={index} href={item?.link ? item.link : undefined} onClick={(e) => {
             if (!item?.link) {
               e.preventDefault();
@@ -15,7 +19,7 @@ const FooterCTA = ({ handleTogglecontactForm }) => {
             }
           }} target="_blank" className={styles.ctaItem}>
             <div className={styles.icon}>
-              <DynamicIcon name={item?.icon} color="#153b56" size={30} />
+              {mounted && <DynamicIcon name={item?.icon} color="#153b56" size={30} />}
             </div>
             <div
               className={styles.text}

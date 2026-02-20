@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./styles.module.css";
 import Button from "@/common/Button";
 import { HomeData } from "@/constant/Home";
@@ -6,6 +6,7 @@ import CountUp from "react-countup";
 import emailjs from "emailjs-com";
 import { useInView } from "react-intersection-observer";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 const HomeBanner = ({ data, handleScrollToAddress }) => {
   const router = useRouter();
@@ -18,6 +19,12 @@ const HomeBanner = ({ data, handleScrollToAddress }) => {
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -161,7 +168,7 @@ const HomeBanner = ({ data, handleScrollToAddress }) => {
               <div className={styles.statsContainer} ref={ref}>
                 <div className={styles.statItem}>
                   <p className={styles.statValue}>
-                    {inView && (
+                    {mounted && inView && (
                       <CountUp
                         end={HomeData?.bannerData?.stat1value}
                         start={0}
@@ -176,7 +183,7 @@ const HomeBanner = ({ data, handleScrollToAddress }) => {
                 </div>
                 <div className={styles.statItem}>
                   <p className={styles.statValue}>
-                    {inView && (
+                    {mounted && inView && (
                       <CountUp
                         end={HomeData?.bannerData?.stat2value}
                         start={0}
@@ -191,7 +198,7 @@ const HomeBanner = ({ data, handleScrollToAddress }) => {
                 </div>
                 <div className={styles.statItem}>
                   <p className={styles.statValue}>
-                    {inView && (
+                    {mounted && inView && (
                       <CountUp
                         end={HomeData?.bannerData?.stat3value}
                         start={0}
@@ -207,11 +214,15 @@ const HomeBanner = ({ data, handleScrollToAddress }) => {
               </div>
             </div>
           </div>
-          <div className="col-lg-6">
-            <img
+          <div className="col-lg-6" style={{ position: "relative", height: "490px" }}>
+            <Image
               src={HomeData?.bannerData?.image}
               alt="Doctors"
               className={styles.bannerImage}
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, 50vw"
+              style={{ objectFit: 'cover' }}
             />
           </div>
         </div>
