@@ -1,8 +1,13 @@
+import { useState, useEffect } from "react";
 import { DynamicIcon } from "lucide-react/dynamic";
 import Image from "next/image";
 import styles from "./styles.module.css";
 
 const QuickAction = ({ handleTogglecontactForm }) => {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   return (
     <div
       className={`
@@ -23,12 +28,12 @@ const QuickAction = ({ handleTogglecontactForm }) => {
 
       {/* Address */}
       <a
-        href="https://share.google/RdnreaGudm996QFok" 
+        href="https://share.google/RdnreaGudm996QFok"
         target="_blank"
         rel="noopener noreferrer"
         className={styles.actionBtn}
       >
-        <DynamicIcon name="map-pin" color="#2A3B77" size={25} />
+        {mounted && <DynamicIcon name="map-pin" color="#2A3B77" size={25} />}
         <p>Address</p>
       </a>
 
@@ -37,8 +42,8 @@ const QuickAction = ({ handleTogglecontactForm }) => {
         href="tel:+917075008561"
         className={`${styles.actionBtn}`}
       >
-        <DynamicIcon name="phone" color="#21a179" size={25} />
-         <p>Call</p>
+        {mounted && <DynamicIcon name="phone" color="#21a179" size={25} />}
+        <p>Call</p>
       </a>
 
       {/* Instagram */}
@@ -48,7 +53,7 @@ const QuickAction = ({ handleTogglecontactForm }) => {
         rel="noopener noreferrer"
         className={styles.actionBtn}
       >
-        <DynamicIcon name="instagram" color="black" size={25} />
+        {mounted && <DynamicIcon name="instagram" color="black" size={25} />}
         <p>Insta</p>
       </a>
 
@@ -57,7 +62,7 @@ const QuickAction = ({ handleTogglecontactForm }) => {
         onClick={handleTogglecontactForm}
         className={styles.actionBtn}
       >
-        <DynamicIcon name="calendar" color="#CD7E2A" size={27} />
+        {mounted && <DynamicIcon name="calendar" color="#CD7E2A" size={27} />}
         <p>Book</p>
       </div>
     </div>

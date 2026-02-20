@@ -1,17 +1,21 @@
-import React from "react";
 import styles from "./styles.module.css";
 import Button from "@/common/Button";
 import { ThumbsUp, Briefcase } from "lucide-react";
+import Image from "next/image";
 
 const DoctorCard = ({ expert, handleTogglecontactForm }) => {
   return (
     <div className={styles.doctorCard}>
       <div className={styles.imageContent}>
-        <img
-          src={expert.image}
-          alt={expert.name}
-          className={styles.doctorImage}
-        />
+        <div className={styles.doctorImage} style={{ position: 'relative' }}>
+          <Image
+            src={expert.image}
+            alt={expert.name}
+            fill
+            style={{ objectFit: 'cover' }}
+            sizes="(max-width: 768px) 100vw, 30vw"
+          />
+        </div>
       </div>
       <div className={styles.cardContent}>
         <div>

@@ -1,8 +1,14 @@
-import { HomeData } from "@/constant/Home";
 import styles from "./styles.module.css";
+import { HomeData } from "@/constant/Home";
 import { DynamicIcon } from "lucide-react/dynamic";
+import Image from "next/image";
+import { useState, useEffect } from "react";
 
 const Footer = () => {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   return (
     <footer className={styles.footerWrapper}>
       <div className="container">
@@ -14,10 +20,14 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img
+                <Image
                   src="/assets/pixel_logo.png"
                   alt="Pixel Eye Hospitals Logo"
+                  width={200}
+                  height={60}
+                  style={{ objectFit: 'contain' }}
                   className={styles.logo}
+                  loading="lazy"
                 />
               </a>
             </div>
@@ -42,7 +52,7 @@ const Footer = () => {
                 {HomeData?.footer?.vistis?.map((data, i) => (
                   <div className="d-flex align-items-start gap-2 my-4" key={i}>
                     <div>
-                      <DynamicIcon name="clock" size={18} />
+                      {mounted && <DynamicIcon name="clock" size={18} />}
                     </div>
 
                     <div className={styles.visit}>

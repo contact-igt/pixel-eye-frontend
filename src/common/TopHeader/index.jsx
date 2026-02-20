@@ -1,6 +1,6 @@
-import React from "react";
 import styles from "./styles.module.css";
 import Button from "../Button";
+import Image from "next/image";
 
 const TopHeader = () => {
   return (
@@ -8,35 +8,39 @@ const TopHeader = () => {
       <div className="container-md d-flex justify-content-between align-items-center">
         <div className={`${styles.imgContainer} d-flex align-items-center`}>
           <a href="https://www.pixeleyehospitals.com/" target="_blank" rel="noopener noreferrer">
-            <img
+            <Image
               src="/assets/pixel_logo.png"
               alt="Pixel Eye Hospitals Logo"
+              width={220}
+              height={80}
               className={styles.logo}
+              priority
+              style={{ objectFit: 'contain' }}
             />
           </a>
         </div>
         <div className={styles.buttonGroup}>
-            <Button
-              isicon={true}
-              href={"tel:+917075008561"}
-              name="Call 7075008561"
-              bgcolor="#153b56"
-              txtcolor="#fff"
-              border="1px solid #153b56"
-              icon={"phone"}
-              iconcolor={"#fff"}
-              hideTextOnMobile={true}
-            />
-            <Button
-              href={"https://wa.me/917075008561"}
-              name="Chat on WhatsApp"
-              bgcolor="#153b56"
-              txtcolor="#ffffff"
-              imgicon={"/assets/whatsapp.png"}
-              isimg={true}
-              hideTextOnMobile={true}
-            />
-          </div>
+          <Button
+            isicon={true}
+            href={"tel:+917075008561"}
+            name="Call 7075008561"
+            bgcolor="#153b56"
+            txtcolor="#fff"
+            border="1px solid #153b56"
+            icon={"phone"}
+            iconcolor={"#fff"}
+            hideTextOnMobile={true}
+          />
+          <Button
+            href={"https://wa.me/917075008561"}
+            name="Chat on WhatsApp"
+            bgcolor="#153b56"
+            txtcolor="#ffffff"
+            imgicon={"/assets/whatsapp.png"}
+            isimg={true}
+            hideTextOnMobile={true}
+          />
+        </div>
       </div>
     </div>
   );
