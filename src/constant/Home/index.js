@@ -240,8 +240,8 @@ export const HomeData = {
       "Fourth Floor, Commercial Complex PNR Highnest, 1-2-22/PNRHN/3/B, Dharma Reddy Colony Phase II, Kukatpally Housing Board Colony, Hyderabad, Telangana 500085",
     number1: "070750 08561",
     number1href: "tel:070750 08561",
-    number2: "096504 63841",
-    number2href: "tel:096504 63841",
+    // number2: "",
+    // number2href: "",
     email: "info@pixeleyehospitals.com",
     emailhref: "mailto:info@pixeleyehospitals.com",
     vistis: [

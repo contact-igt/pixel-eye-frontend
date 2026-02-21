@@ -2,13 +2,9 @@ import styles from "./styles.module.css";
 import { HomeData } from "@/constant/Home";
 import { DynamicIcon } from "lucide-react/dynamic";
 import Image from "next/image";
-import { useState, useEffect } from "react";
 
 const Footer = () => {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  // Removed mounted state to avoid hydration mismatch
   return (
     <footer className={styles.footerWrapper}>
       <div className="container">
@@ -25,7 +21,7 @@ const Footer = () => {
                   alt="Pixel Eye Hospitals Logo"
                   width={200}
                   height={60}
-                  style={{ objectFit: 'contain' }}
+                  style={{ objectFit: "contain" }}
                   className={styles.logo}
                   loading="lazy"
                 />
@@ -52,7 +48,7 @@ const Footer = () => {
                 {HomeData?.footer?.vistis?.map((data, i) => (
                   <div className="d-flex align-items-start gap-2 my-4" key={i}>
                     <div>
-                      {mounted && <DynamicIcon name="clock" size={18} />}
+                      <DynamicIcon name="clock" size={18} />
                     </div>
 
                     <div className={styles.visit}>
@@ -110,12 +106,12 @@ const Footer = () => {
               <div
                 className={`${styles.numbertext} d-flex align-items-center gap-2  my-4`}
               >
-                <a href={HomeData?.footer?.number1href}>
-                  {HomeData?.footer?.number1}
+                <a href={HomeData?.footer?.number1href ?? ""}>
+                  {HomeData?.footer?.number1 ?? ""}
                 </a>
-                <a href={HomeData?.footer?.number2href}>
+                {/* <a href={HomeData?.footer?.number2href}>
                   {HomeData?.footer?.number2}
-                </a>
+                </a> */}
               </div>
             </div>
 
@@ -150,12 +146,12 @@ const Footer = () => {
               <div
                 className={`${styles.numbertext} d-flex align-items-center gap-2  my-4`}
               >
-                <a href={HomeData?.footer?.number1href}>
-                  {HomeData?.footer?.number1}
+                <a href={HomeData?.footer?.number1href ?? ""}>
+                  {HomeData?.footer?.number1 ?? ""}
                 </a>
-                <a href={HomeData?.footer?.number2href}>
+                {/* <a href={HomeData?.footer?.number2href}>
                   {HomeData?.footer?.number2}
-                </a>
+                </a> */}
               </div>
             </div>
 
