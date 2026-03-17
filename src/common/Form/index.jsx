@@ -97,7 +97,7 @@ const Form = ({ handleTogglecontactForm }) => {
         "4yBxE-kzbe7EuZqFh"
       );
       setLoading(false);
-      router.push("/thank-you");
+      window.location.href = "/thank-you";
     } catch (error) {
       console.error(error);
       setLoading(false);
