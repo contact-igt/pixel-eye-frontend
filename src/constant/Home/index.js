@@ -4,6 +4,7 @@ export const serviceOptions = [
   "Squint Correction (Strabismus Surgery)",
   "Glaucoma Treatment",
   "Retina",
+  "Others"
 ];
 
 export const HomeData = {
