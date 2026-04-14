@@ -2,85 +2,85 @@ import Button from "@/common/Button";
 import React, { useState } from "react";
 import styles from "./styles.module.css";
 import emailjs from "emailjs-com";
-import { useRouter } from "next/router";
+import { serviceOptions } from "@/constant/Home";
+import dynamic from "next/dynamic";
 
-const Form = ({ handleTogglecontactForm }) => {
-  const router = useRouter();
+const CustomSelect = dynamic(() => import("@/common/CustomSelect"), { ssr: false });
+
+const Form = () => {
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     PatientName: "",
     MobileNumber: "",
+    Service: "",
   });
-  const [error, setError] = useState("");
+  const [errors, setErrors] = useState({
+    PatientName: "",
+    MobileNumber: "",
+    Service: "",
+  });
+  const [submitError, setSubmitError] = useState("");
+
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+    setErrors({ ...errors, [name]: "" });
+  };
+
+  const handleServiceChange = (value) => {
+    setFormData({ ...formData, Service: value });
+    setErrors({ ...errors, Service: "" });
+  };
+
+  const validate = () => {
+    const newErrors = { PatientName: "", MobileNumber: "", Service: "" };
+    let valid = true;
+
+    if (!formData.PatientName.trim()) {
+      newErrors.PatientName = "Name is required.";
+      valid = false;
+    }
+
+    if (!formData.MobileNumber) {
+      newErrors.MobileNumber = "Mobile number is required.";
+      valid = false;
+    } else if (!/^[6-9]\d{9}$/.test(formData.MobileNumber)) {
+      newErrors.MobileNumber = "Enter a valid 10-digit mobile number.";
+      valid = false;
+    }
+
+    if (!formData.Service) {
+      newErrors.Service = "Please select a service.";
+      valid = false;
+    }
+
+    setErrors(newErrors);
+    return valid;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.MobileNumber) {
-      setError("Mobile number is required.");
-      return;
-    }
-    const phoneRegex = /^[6-9]\d{9}$/;
-    if (!phoneRegex.test(formData.MobileNumber)) {
-      setError("Enter a valid 10-digit mobile number.");
-      return;
-    }
+    if (!validate()) return;
+
     try {
       setLoading(true);
       const ipResponse = await fetch("https://api.ipify.org?format=json");
       const ipData = await ipResponse.json();
 
-
-      // const registerFormData = {
-      //   name: formData?.PatientName,
-      //   mobile: formData.MobileNumber,
-      //   ip_address: ipData.ip,
-      //   utm_source: localStorage.getItem("utm_source"),
-      //   page_name: "sanathnagar",
-      // }
-      // const APISERVER =
-      //   process.env.NEXT_PUBLIC_API_SERVER === "production"
-      //     ? process.env.NEXT_PUBLIC_PRODUCTION_API_URL
-      //     : process.env.NEXT_PUBLIC_API_SERVER === "stage"
-      //       ? process.env.NEXT_PUBLIC_STAGE_API_URL
-      //       : process.env.NEXT_PUBLIC_LOCALHOST_API_URL;
-      // const registerResponse = await fetch(
-      //   `${APISERVER}/pixel-eye`,
-      //   {
-      //     method: "POST",
-      //     headers: {
-      //       "Content-Type": "application/x-www-form-urlencoded",
-      //     },
-      //     body: new URLSearchParams(registerFormData).toString(),
-      //   }
-      // );
-
-      // if (!registerResponse.ok) {
-      //   setError("Something went wrong. Please try again.");
-      //   setLoading(false);
-      //   return;
-      // }
-
       const newFormData = {
-        PatientName: formData?.PatientName,
+        PatientName: formData.PatientName,
         MobileNumber: formData.MobileNumber,
+        Service: formData.Service,
         IP_Address: ipData.ip,
         utm_source: localStorage.getItem("utm_source"),
-      }
-
-      const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbxz-HpoU7v381Q8g38S7ZTO9A6BvyHJVTQUcsOx0g-DteQ7tr3RiKzOVpypzgPEmZrp/exec",
+      };
+      console.log("newFormData", newFormData)
+      await fetch(
+        "https://script.google.com/macros/s/AKfycbxNRDdmbe0CV8xYgZrXmYE1Dwzab4p5La8TfZQZJtxdR0L8u1bQk0xRu3qn7Quojl8F/exec",
         {
           method: "POST",
           mode: "no-cors",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: new URLSearchParams(newFormData).toString(),
         }
       );
@@ -88,11 +88,12 @@ const Form = ({ handleTogglecontactForm }) => {
         "service_wiw9jr5",
         "template_gr9dlqd",
         {
-          patient_name: formData.PatientName || "Guest Patient",
-          mobile_number: formData.MobileNumber, service_name: "Eye Care Consultation",
+          patient_name: formData.PatientName,
+          mobile_number: formData.MobileNumber,
+          service_name: formData.Service,
           email_subject: "New Appointment Inquiry - Pixel Eye Hospitals",
           from_name: "Pixel Eye Hospitals",
-          from_email: "info@pixeleyehospitals.com"
+          from_email: "info@pixeleyehospitals.com",
         },
         "4yBxE-kzbe7EuZqFh"
       );
@@ -101,9 +102,11 @@ const Form = ({ handleTogglecontactForm }) => {
     } catch (error) {
       console.error(error);
       setLoading(false);
-      setError("Something went wrong. Please try again.");
+      setSubmitError("Something went wrong. Please try again.");
     }
   };
+
+  const errorStyle = { color: "#ff6f61", fontSize: "0.82rem", marginTop: "4px" };
 
   return (
     <div className={`${styles.card}`}>
@@ -113,32 +116,51 @@ const Form = ({ handleTogglecontactForm }) => {
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <input
+            suppressHydrationWarning
             type="text"
             name="PatientName"
             onChange={handleChange}
-            className="form-control rounded-3 py-3"
-            placeholder="Patient Name (Optional)"
+            className={`form-control rounded-3 py-3${errors.PatientName ? " is-invalid" : ""}`}
+            placeholder="Patient Name"
             aria-label="Patient Name"
           />
+          {errors.PatientName ? <p style={errorStyle}>{errors.PatientName}</p> : null}
         </div>
 
-        <div className="mb-1 input-group">
-          <span className="input-group-text bg-light border-end-0 rounded-start-3 py-3">
-            +91
-          </span>
-          <input
-            name="MobileNumber"
-            type="tel"
-            onChange={handleChange}
-            className="form-control border-start-0 rounded-end-3"
-            placeholder="Mobile Number"
-            aria-label="Mobile Number"
-          />
+        <div className="mb-3">
+          <div className="input-group">
+            <span className="input-group-text bg-light border-end-0 rounded-start-3 py-3">
+              +91
+            </span>
+            <input
+              suppressHydrationWarning
+              name="MobileNumber"
+              type="tel"
+              onChange={handleChange}
+              className={`form-control border-start-0 rounded-end-3${errors.MobileNumber ? " is-invalid" : ""}`}
+              placeholder="Mobile Number"
+              aria-label="Mobile Number"
+            />
+          </div>
+          {errors.MobileNumber ? <p style={errorStyle}>{errors.MobileNumber}</p> : null}
         </div>
-        {error && <p className="mt-2" style={{ color: "#ff6f61" }}>{error}</p>}
-        <div className="d-grid mt-4">
+
+        <div className="mb-3">
+          <CustomSelect
+            options={serviceOptions}
+            value={formData.Service}
+            onChange={handleServiceChange}
+            placeholder="Select a Service"
+            error={errors.Service}
+          />
+          {errors.Service ? <p style={errorStyle}>{errors.Service}</p> : null}
+        </div>
+
+        {submitError ? <p style={{ ...errorStyle, marginBottom: "8px" }}>{submitError}</p> : null}
+        <div className="d-grid mt-2">
           <Button
-            disabled={loading} name={loading ? "Booking..." : "Book Now"}
+            disabled={loading}
+            name={loading ? "Booking..." : "Book Now"}
             bgcolor="#f5a623"
             txtcolor="#000"
           />
