@@ -1,3 +1,11 @@
+export const serviceOptions = [
+  "Cataract Eye Surgery",
+  "LASIK & Refractive Surgery",
+  "Squint Correction (Strabismus Surgery)",
+  "Glaucoma Treatment",
+  "Retina",
+];
+
 export const HomeData = {
   bannerData: {
     title: "Welcome to Pixel Eye Hospital",

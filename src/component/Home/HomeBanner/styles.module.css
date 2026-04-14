@@ -36,21 +36,19 @@
 
 .formContainer {
   display: flex;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
-.formContainer input {
-  flex-grow: 1;
+.formContainer input,
+.formContainer select {
+  width: 100%;
   padding: 0.85rem;
   border: 1px solid #ced4da;
   border-radius: 8px;
   font-size: 1rem;
 }
 
-.error {
-  margin-top: 3px;
-  height: 8px;
-}
 
 .statsContainer {
   display: flex;
@@ -138,15 +136,10 @@
     font-size: 1rem;
   }
 
-  .formContainer,
   .formContainer input,
+  .formContainer select,
   .formContainer button {
-    display: block;
     width: 100%;
-  }
-
-  .formContainer button {
-    margin-top: 20px;
   }
 
 

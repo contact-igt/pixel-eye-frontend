@@ -1,24 +1,32 @@
 import React, { useState, useEffect } from "react";
 import styles from "./styles.module.css";
 import Button from "@/common/Button";
-import { HomeData } from "@/constant/Home";
+import { HomeData, serviceOptions } from "@/constant/Home";
 import CountUp from "react-countup";
 import emailjs from "emailjs-com";
 import { useInView } from "react-intersection-observer";
-import { useRouter } from "next/router";
 import Image from "next/image";
+import dynamic from "next/dynamic";
+
+const CustomSelect = dynamic(() => import("@/common/CustomSelect"), { ssr: false });
 
 const HomeBanner = ({ data, handleScrollToAddress }) => {
-  const router = useRouter();
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
   const [formData, setFormData] = useState({
+    PatientName: "",
     MobileNumber: "",
+    Service: "",
+  });
+  const [errors, setErrors] = useState({
+    PatientName: "",
+    MobileNumber: "",
+    Service: "",
   });
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [submitError, setSubmitError] = useState("");
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -26,68 +34,64 @@ const HomeBanner = ({ data, handleScrollToAddress }) => {
   }, []);
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+    setErrors({ ...errors, [name]: "" });
+  };
+
+  const handleServiceChange = (value) => {
+    setFormData({ ...formData, Service: value });
+    setErrors({ ...errors, Service: "" });
+  };
+
+  const validate = () => {
+    const newErrors = { PatientName: "", MobileNumber: "", Service: "" };
+    let valid = true;
+
+    if (!formData.PatientName.trim()) {
+      newErrors.PatientName = "Name is required.";
+      valid = false;
+    }
+
+    if (!formData.MobileNumber) {
+      newErrors.MobileNumber = "Mobile number is required.";
+      valid = false;
+    } else if (!/^[6-9]\d{9}$/.test(formData.MobileNumber)) {
+      newErrors.MobileNumber = "Enter a valid 10-digit mobile number.";
+      valid = false;
+    }
+
+    if (!formData.Service) {
+      newErrors.Service = "Please select a service.";
+      valid = false;
+    }
+
+    if(newErrors) setErrors(newErrors);
+    return valid;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.MobileNumber) {
-      setError("Mobile number is required.");
-      return;
-    }
-    const phoneRegex = /^[6-9]\d{9}$/;
-    if (!phoneRegex.test(formData.MobileNumber)) {
-      setError("Enter a valid 10-digit mobile number.");
-      return;
-    }
+    if (!validate()) return;
+
     try {
       setLoading(true);
       const ipResponse = await fetch("https://api.ipify.org?format=json");
       const ipData = await ipResponse.json();
 
-      // const registerFormData = {
-      //   name: formData?.PatientName,
-      //   mobile: formData.MobileNumber,
-      //   ip_address: ipData.ip,
-      //   utm_source: localStorage.getItem("utm_source"),
-      //   page_name: "sanathnagar",
-      // };
-      // const APISERVER =
-      //   process.env.NEXT_PUBLIC_API_SERVER === "production"
-      //     ? process.env.NEXT_PUBLIC_PRODUCTION_API_URL
-      //     : process.env.NEXT_PUBLIC_API_SERVER === "stage"
-      //     ? process.env.NEXT_PUBLIC_STAGE_API_URL
-      //     : process.env.NEXT_PUBLIC_LOCALHOST_API_URL;
-      // const registerResponse = await fetch(`${APISERVER}/pixel-eye`, {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/x-www-form-urlencoded",
-      //   },
-      //   body: new URLSearchParams(registerFormData).toString(),
-      // });
-
-      // if (!registerResponse.ok) {
-      //   setError("Something went wrong. Please try again.");
-      //   setLoading(false);
-      //   return;
-      // }
       const newFormData = {
-        PatientName: "",
+        PatientName: formData.PatientName,
         MobileNumber: formData.MobileNumber,
+        Service: formData.Service,
         IP_Address: ipData.ip,
         utm_source: localStorage.getItem("utm_source"),
       };
-      const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbxz-HpoU7v381Q8g38S7ZTO9A6BvyHJVTQUcsOx0g-DteQ7tr3RiKzOVpypzgPEmZrp/exec",
+
+      await fetch("https://script.google.com/macros/s/AKfycbxNRDdmbe0CV8xYgZrXmYE1Dwzab4p5La8TfZQZJtxdR0L8u1bQk0xRu3qn7Quojl8F/exec",
         {
           method: "POST",
           mode: "no-cors",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: new URLSearchParams(newFormData).toString(),
         }
       );
@@ -95,9 +99,9 @@ const HomeBanner = ({ data, handleScrollToAddress }) => {
         "service_wiw9jr5",
         "template_gr9dlqd",
         {
-          patient_name: formData.PatientName || "Guest Patient",
+          patient_name: formData.PatientName,
           mobile_number: formData.MobileNumber,
-          service_name: "Eye Care Consultation",
+          service_name: formData.Service,
           email_subject: "New Appointment Inquiry - Pixel Eye Hospitals",
           from_name: "Pixel Eye Hospitals",
           from_email: "info@pixeleyehospitals.com",
@@ -109,9 +113,11 @@ const HomeBanner = ({ data, handleScrollToAddress }) => {
     } catch (error) {
       console.error(error);
       setLoading(false);
-      setError("Something went wrong. Please try again.");
+      setSubmitError("Something went wrong. Please try again.");
     }
   };
+
+  const errorStyle = { color: "#ff6f61", fontSize: "0.8rem", marginTop: "4px" };
 
   return (
     <div className={styles.bannerContainer}>
@@ -136,80 +142,85 @@ const HomeBanner = ({ data, handleScrollToAddress }) => {
                   {HomeData?.bannerData?.appointmentText}
                 </p>
                 <div className={styles.formContainer}>
-                  <div className="input-group">
-                    <span className="input-group-text bg-light border-end-0">
-                      +91
-                    </span>
+                  <div>
                     <input
-                      type="tel"
-                      name="MobileNumber"
+                      suppressHydrationWarning
+                      type="text"
+                      name="PatientName"
                       onChange={handleChange}
-                      className="form-control border-start-0"
-                      placeholder="Contact Number"
-                      aria-label="Contact Number"
+                      className={`form-control${errors.PatientName ? " is-invalid" : ""}`}
+                      placeholder="Your Name"
+                      aria-label="Patient Name"
                     />
+                    {errors.PatientName ? <p style={errorStyle}>{errors.PatientName}</p> : null}
                   </div>
+
+                  <div>
+                    <div className="input-group">
+                      <span className="input-group-text bg-light border-end-0">
+                        +91
+                      </span>
+                      <input
+                        suppressHydrationWarning
+                        type="tel"
+                        name="MobileNumber"
+                        onChange={handleChange}
+                        className={`form-control border-start-0${errors.MobileNumber ? " is-invalid" : ""}`}
+                        placeholder="Contact Number"
+                        aria-label="Contact Number"
+                      />
+                    </div>
+                    {errors.MobileNumber ? <p style={errorStyle}>{errors.MobileNumber}</p> : null}
+                  </div>
+
+                  <div className="mb-3">
+                    <CustomSelect
+                      options={serviceOptions}
+                      value={formData.Service}
+                      onChange={handleServiceChange}
+                      placeholder="Select a Service"
+                      error={errors.Service}
+                    />
+                    {errors.Service ? <p style={errorStyle}>{errors.Service}</p> : null}
+                  </div>
+                  {submitError ? <p style={errorStyle}>{submitError}</p> : null}
+
                   <Button
                     disabled={loading}
                     handleTogglecontactForm={handleSubmit}
-                    name={
-                      loading ? "Booking your callback… " : "Request a Callback"
-                    }
+                    name={loading ? "Booking your callback…" : "Request a Callback"}
                     bgcolor="#f5a623"
                     txtcolor="#000"
                   />
-                </div>
-                <div className={styles.error}>
-                  <p className="small" style={{ color: "#ff6f61" }}>
-                    {error}
-                  </p>
                 </div>
               </div>
               <div className={styles.statsContainer} ref={ref}>
                 <div className={styles.statItem}>
                   <p className={styles.statValue}>
                     {mounted && inView && (
-                      <CountUp
-                        end={HomeData?.bannerData?.stat1value}
-                        start={0}
-                        duration={2.5}
-                      />
+                      <CountUp end={HomeData?.bannerData?.stat1value} start={0} duration={2.5} />
                     )}
                     +
                   </p>
-                  <p className={styles.statLabel}>
-                    {HomeData?.bannerData?.stat1label}
-                  </p>
+                  <p className={styles.statLabel}>{HomeData?.bannerData?.stat1label}</p>
                 </div>
                 <div className={styles.statItem}>
                   <p className={styles.statValue}>
                     {mounted && inView && (
-                      <CountUp
-                        end={HomeData?.bannerData?.stat2value}
-                        start={0}
-                        duration={2.5}
-                      />
+                      <CountUp end={HomeData?.bannerData?.stat2value} start={0} duration={2.5} />
                     )}
                     &nbsp;Lakh+
                   </p>
-                  <p className={styles.statLabel}>
-                    {HomeData?.bannerData?.stat2label}
-                  </p>
+                  <p className={styles.statLabel}>{HomeData?.bannerData?.stat2label}</p>
                 </div>
                 <div className={styles.statItem}>
                   <p className={styles.statValue}>
                     {mounted && inView && (
-                      <CountUp
-                        end={HomeData?.bannerData?.stat3value}
-                        start={0}
-                        duration={2.5}
-                      />
+                      <CountUp end={HomeData?.bannerData?.stat3value} start={0} duration={2.5} />
                     )}
                     +
                   </p>
-                  <p className={styles.statLabel}>
-                    {HomeData?.bannerData?.stat3label}
-                  </p>
+                  <p className={styles.statLabel}>{HomeData?.bannerData?.stat3label}</p>
                 </div>
               </div>
             </div>
@@ -222,7 +233,7 @@ const HomeBanner = ({ data, handleScrollToAddress }) => {
               fill
               priority
               sizes="(max-width: 768px) 100vw, 50vw"
-              style={{ objectFit: 'cover' }}
+              style={{ objectFit: "cover" }}
             />
           </div>
         </div>
