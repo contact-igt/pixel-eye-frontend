@@ -8,7 +8,9 @@ import { useInView } from "react-intersection-observer";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 
-const CustomSelect = dynamic(() => import("@/common/CustomSelect"), { ssr: false });
+const CustomSelect = dynamic(() => import("@/common/CustomSelect"), {
+  ssr: false,
+});
 
 const HomeBanner = ({ data, handleScrollToAddress }) => {
   const { ref, inView } = useInView({
@@ -66,7 +68,7 @@ const HomeBanner = ({ data, handleScrollToAddress }) => {
       valid = false;
     }
 
-    if(newErrors) setErrors(newErrors);
+    if (newErrors) setErrors(newErrors);
     return valid;
   };
 
@@ -79,6 +81,22 @@ const HomeBanner = ({ data, handleScrollToAddress }) => {
       const ipResponse = await fetch("https://api.ipify.org?format=json");
       const ipData = await ipResponse.json();
 
+      await fetch(
+        "https://www.privyr.com/api/v1/incoming-leads/0vZfjMQw/xKtkqD5A",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: formData?.PatientName,
+            phone: "+91" + formData.MobileNumber,
+            display_name: formData?.PatientName,
+            source: "Sanathnagar Landing Page",
+          }),
+        },
+      );
+
       const newFormData = {
         PatientName: formData.PatientName,
         MobileNumber: formData.MobileNumber,
@@ -87,13 +105,14 @@ const HomeBanner = ({ data, handleScrollToAddress }) => {
         utm_source: localStorage.getItem("utm_source"),
       };
 
-      await fetch("https://script.google.com/macros/s/AKfycbxNRDdmbe0CV8xYgZrXmYE1Dwzab4p5La8TfZQZJtxdR0L8u1bQk0xRu3qn7Quojl8F/exec",
+      await fetch(
+        "https://script.google.com/macros/s/AKfycbxNRDdmbe0CV8xYgZrXmYE1Dwzab4p5La8TfZQZJtxdR0L8u1bQk0xRu3qn7Quojl8F/exec",
         {
           method: "POST",
           mode: "no-cors",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: new URLSearchParams(newFormData).toString(),
-        }
+        },
       );
       await emailjs.send(
         "service_wiw9jr5",
@@ -106,7 +125,7 @@ const HomeBanner = ({ data, handleScrollToAddress }) => {
           from_name: "Pixel Eye Hospitals",
           from_email: "info@pixeleyehospitals.com",
         },
-        "4yBxE-kzbe7EuZqFh"
+        "4yBxE-kzbe7EuZqFh",
       );
       setLoading(false);
       window.location.href = "/thank-you";
@@ -152,7 +171,9 @@ const HomeBanner = ({ data, handleScrollToAddress }) => {
                       placeholder="Your Name"
                       aria-label="Patient Name"
                     />
-                    {errors.PatientName ? <p style={errorStyle}>{errors.PatientName}</p> : null}
+                    {errors.PatientName ? (
+                      <p style={errorStyle}>{errors.PatientName}</p>
+                    ) : null}
                   </div>
 
                   <div>
@@ -170,7 +191,9 @@ const HomeBanner = ({ data, handleScrollToAddress }) => {
                         aria-label="Contact Number"
                       />
                     </div>
-                    {errors.MobileNumber ? <p style={errorStyle}>{errors.MobileNumber}</p> : null}
+                    {errors.MobileNumber ? (
+                      <p style={errorStyle}>{errors.MobileNumber}</p>
+                    ) : null}
                   </div>
 
                   <div className="mb-3">
@@ -181,14 +204,18 @@ const HomeBanner = ({ data, handleScrollToAddress }) => {
                       placeholder="Select a Service"
                       error={errors.Service}
                     />
-                    {errors.Service ? <p style={errorStyle}>{errors.Service}</p> : null}
+                    {errors.Service ? (
+                      <p style={errorStyle}>{errors.Service}</p>
+                    ) : null}
                   </div>
                   {submitError ? <p style={errorStyle}>{submitError}</p> : null}
 
                   <Button
                     disabled={loading}
                     handleTogglecontactForm={handleSubmit}
-                    name={loading ? "Booking your callback…" : "Request a Callback"}
+                    name={
+                      loading ? "Booking your callback…" : "Request a Callback"
+                    }
                     bgcolor="#f5a623"
                     txtcolor="#000"
                   />
@@ -198,34 +225,55 @@ const HomeBanner = ({ data, handleScrollToAddress }) => {
                 <div className={styles.statItem}>
                   <p className={styles.statValue}>
                     {mounted && inView && (
-                      <CountUp end={HomeData?.bannerData?.stat1value} start={0} duration={2.5} />
+                      <CountUp
+                        end={HomeData?.bannerData?.stat1value}
+                        start={0}
+                        duration={2.5}
+                      />
                     )}
                     +
                   </p>
-                  <p className={styles.statLabel}>{HomeData?.bannerData?.stat1label}</p>
+                  <p className={styles.statLabel}>
+                    {HomeData?.bannerData?.stat1label}
+                  </p>
                 </div>
                 <div className={styles.statItem}>
                   <p className={styles.statValue}>
                     {mounted && inView && (
-                      <CountUp end={HomeData?.bannerData?.stat2value} start={0} duration={2.5} />
+                      <CountUp
+                        end={HomeData?.bannerData?.stat2value}
+                        start={0}
+                        duration={2.5}
+                      />
                     )}
                     &nbsp;Lakh+
                   </p>
-                  <p className={styles.statLabel}>{HomeData?.bannerData?.stat2label}</p>
+                  <p className={styles.statLabel}>
+                    {HomeData?.bannerData?.stat2label}
+                  </p>
                 </div>
                 <div className={styles.statItem}>
                   <p className={styles.statValue}>
                     {mounted && inView && (
-                      <CountUp end={HomeData?.bannerData?.stat3value} start={0} duration={2.5} />
+                      <CountUp
+                        end={HomeData?.bannerData?.stat3value}
+                        start={0}
+                        duration={2.5}
+                      />
                     )}
                     +
                   </p>
-                  <p className={styles.statLabel}>{HomeData?.bannerData?.stat3label}</p>
+                  <p className={styles.statLabel}>
+                    {HomeData?.bannerData?.stat3label}
+                  </p>
                 </div>
               </div>
             </div>
           </div>
-          <div className="col-lg-6" style={{ position: "relative", height: "490px" }}>
+          <div
+            className="col-lg-6"
+            style={{ position: "relative", height: "490px" }}
+          >
             <Image
               src={HomeData?.bannerData?.image}
               alt="Doctors"
