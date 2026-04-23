@@ -5,7 +5,9 @@ import emailjs from "emailjs-com";
 import { serviceOptions } from "@/constant/Home";
 import dynamic from "next/dynamic";
 
-const CustomSelect = dynamic(() => import("@/common/CustomSelect"), { ssr: false });
+const CustomSelect = dynamic(() => import("@/common/CustomSelect"), {
+  ssr: false,
+});
 
 const Form = () => {
   const [loading, setLoading] = useState(false);
@@ -67,6 +69,22 @@ const Form = () => {
       const ipResponse = await fetch("https://api.ipify.org?format=json");
       const ipData = await ipResponse.json();
 
+      await fetch(
+        "https://www.privyr.com/api/v1/incoming-leads/0vZfjMQw/xKtkqD5A",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: formData?.PatientName,
+            phone: "+91" + formData.MobileNumber,
+            display_name: formData?.PatientName,
+            source: "Sanathnagar Landing Page",
+          }),
+        },
+      );
+
       const newFormData = {
         PatientName: formData.PatientName,
         MobileNumber: formData.MobileNumber,
@@ -74,7 +92,7 @@ const Form = () => {
         IP_Address: ipData.ip,
         utm_source: localStorage.getItem("utm_source"),
       };
-      console.log("newFormData", newFormData)
+      console.log("newFormData", newFormData);
       await fetch(
         "https://script.google.com/macros/s/AKfycbxNRDdmbe0CV8xYgZrXmYE1Dwzab4p5La8TfZQZJtxdR0L8u1bQk0xRu3qn7Quojl8F/exec",
         {
@@ -82,7 +100,7 @@ const Form = () => {
           mode: "no-cors",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: new URLSearchParams(newFormData).toString(),
-        }
+        },
       );
       await emailjs.send(
         "service_wiw9jr5",
@@ -95,7 +113,7 @@ const Form = () => {
           from_name: "Pixel Eye Hospitals",
           from_email: "info@pixeleyehospitals.com",
         },
-        "4yBxE-kzbe7EuZqFh"
+        "4yBxE-kzbe7EuZqFh",
       );
       setLoading(false);
       window.location.href = "/thank-you";
@@ -106,7 +124,11 @@ const Form = () => {
     }
   };
 
-  const errorStyle = { color: "#ff6f61", fontSize: "0.82rem", marginTop: "4px" };
+  const errorStyle = {
+    color: "#ff6f61",
+    fontSize: "0.82rem",
+    marginTop: "4px",
+  };
 
   return (
     <div className={`${styles.card}`}>
@@ -124,7 +146,9 @@ const Form = () => {
             placeholder="Patient Name"
             aria-label="Patient Name"
           />
-          {errors.PatientName ? <p style={errorStyle}>{errors.PatientName}</p> : null}
+          {errors.PatientName ? (
+            <p style={errorStyle}>{errors.PatientName}</p>
+          ) : null}
         </div>
 
         <div className="mb-3">
@@ -142,7 +166,9 @@ const Form = () => {
               aria-label="Mobile Number"
             />
           </div>
-          {errors.MobileNumber ? <p style={errorStyle}>{errors.MobileNumber}</p> : null}
+          {errors.MobileNumber ? (
+            <p style={errorStyle}>{errors.MobileNumber}</p>
+          ) : null}
         </div>
 
         <div className="mb-3">
@@ -156,7 +182,9 @@ const Form = () => {
           {errors.Service ? <p style={errorStyle}>{errors.Service}</p> : null}
         </div>
 
-        {submitError ? <p style={{ ...errorStyle, marginBottom: "8px" }}>{submitError}</p> : null}
+        {submitError ? (
+          <p style={{ ...errorStyle, marginBottom: "8px" }}>{submitError}</p>
+        ) : null}
         <div className="d-grid mt-2">
           <Button
             disabled={loading}
