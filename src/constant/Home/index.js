@@ -20,7 +20,7 @@ export const HomeData = {
     stat3value: "10",
     stat3label: "Doctors",
     appointmentText: "To book an appointment",
-    image: "/assets/bannerImage.jpg",
+    image: "/assets/bannerImage3.JPG",
   },
 
   excellenceData: {
@@ -179,6 +179,7 @@ export const HomeData = {
         description:
           "Experience quick, painless cataract removal for clearer, brighter vision. Our advanced lens implants are tailored to your visual and lifestyle needs, helping you see the world anew.",
         image: "/assets/cataractService.jpg",
+        images: ["/assets/cataractService.jpg", "/assets/cataractService1.jpg"],
         link: "https://cataracts.pixeleyehospitals.com/",
         newlyLaunched: false,
       },
@@ -188,6 +189,7 @@ export const HomeData = {
         description:
           "Achieve freedom from glasses or contacts with our precision LASIK treatments. Using cutting-edge laser technology, we reshape your cornea for sharper, high-definition vision and fast recovery.",
         image: "/assets/lasikService.jpg",
+        images: ["/assets/lasikService.jpg", "/assets/lasikService1.JPG"],
         link: "https://eyespecialist.pixeleyehospitals.com/",
         newlyLaunched: false,
       },
@@ -196,7 +198,7 @@ export const HomeData = {
         title: "Squint Correction (Strabismus Surgery)",
         description:
           "Restore natural eye alignment and confidence with expert squint correction. Our specialists use minimally invasive techniques to improve vision, depth perception, and eye coordination.",
-        image: "/assets/squintService.jpg",
+        image: "/assets/squintService1.jpg",
         link: "https://squinteyes.pixeleyehospitals.com/",
         newlyLaunched: false,
       },
@@ -205,7 +207,7 @@ export const HomeData = {
         title: "Glaucoma Treatment",
         description:
           "Protect your vision with early detection and advanced glaucoma care. We offer laser, medication, and microsurgical options to control eye pressure and prevent optic nerve damage.",
-        image: "/assets/glaucomaService.jpg",
+        image: "/assets/glaucomaService1.jpg",
         link: "https://glaucoma.pixeleyehospitals.com/",
         newlyLaunched: false,
       },
@@ -214,7 +216,7 @@ export const HomeData = {
         title: "Retina",
         description:
           "Retina treatments include advanced procedures such as intravitreal injections, laser therapy, and vitrectomy surgery that help manage retinal diseases like diabetic retinopathy, retinal detachment, and macular degeneration.",
-        image: "/assets/retina.jpg",
+        image: "/assets/retina1.jpg",
         link: "https://retina.pixeleyehospitals.com/",
         newlyLaunched: false,
       },
