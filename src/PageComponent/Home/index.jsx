@@ -29,7 +29,10 @@ const HomePageComponent = () => {
   return (
     <>
       <div className="p-0 position-relative">
-        <Header handleTogglecontactForm={handleTogglecontactForm} />
+        <Header 
+          handleTogglecontactForm={handleTogglecontactForm} 
+          onOpenContact={handleTogglecontactForm}
+        />
         <HomeBanner handleScrollToAddress={handleScrollToAddress} />
         <Excellence handleTogglecontactForm={handleTogglecontactForm} />
         <Testimonials handleTogglecontactForm={handleTogglecontactForm} />
@@ -38,7 +41,7 @@ const HomePageComponent = () => {
         <Services handleTogglecontactForm={handleTogglecontactForm} />
         <FooterCTA handleTogglecontactForm={handleTogglecontactForm} />
         <QuickAction handleTogglecontactForm={handleTogglecontactForm} />
-        <Footer />
+        <Footer onOpenContact={handleTogglecontactForm} />
       </div>
       <Popup open={open} onClose={() => handleTogglecontactForm()}>
         <Form handleTogglecontactForm={handleTogglecontactForm} />

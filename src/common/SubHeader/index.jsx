@@ -4,14 +4,14 @@ import Button from "../Button";
 import styles from "./styles.module.css";
 import { useRouter } from "next/router";
 
-const SubHeader = ({ handleTogglecontactForm }) => {
+const SubHeader = ({ handleTogglecontactForm, onOpenContact }) => {
    const router = useRouter();
   const path = router.pathname;
   const isThankYouPage = path === "/thank-you";
   return (
     <div className={styles.subHeader}>
       <div className="container-md d-flex justify-content-between align-items-center">
-        <Navlinks />
+        <Navlinks onOpenContact={onOpenContact} />
 
        {!isThankYouPage && <Button
           isicon={true}

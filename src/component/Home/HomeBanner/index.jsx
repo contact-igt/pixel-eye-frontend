@@ -270,21 +270,6 @@ const HomeBanner = ({ data, handleScrollToAddress }) => {
               </div>
             </div>
           </div>
-<<<<<<< Updated upstream
-          <div
-            className="col-lg-6"
-            style={{ position: "relative", height: "490px" }}
-          >
-            <Image
-              src={HomeData?.bannerData?.image}
-              alt="Doctors"
-              className={styles.bannerImage}
-              fill
-              priority
-              sizes="(max-width: 768px) 100vw, 50vw"
-              style={{ objectFit: "cover" }}
-            />
-=======
           <div className="col-lg-6 col-md-12">
             <div className={styles.bannerImageWrapper}>
               <Image
@@ -302,7 +287,6 @@ const HomeBanner = ({ data, handleScrollToAddress }) => {
                 }}
               />
             </div>
->>>>>>> Stashed changes
           </div>
         </div>
       </div>
