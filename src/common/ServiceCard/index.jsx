@@ -13,7 +13,7 @@ const ServiceCard = ({ service, handleTogglecontactForm }) => {
             fill
             className={styles.cardImage}
             sizes="(max-width: 768px) 100vw, 33vw"
-            style={{ objectFit: 'cover' }}
+            style={{ objectFit: 'cover', objectPosition: '50% 35%' }}
           />
         </div>
         {service.newlyLaunched && (

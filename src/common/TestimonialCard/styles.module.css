@@ -14,7 +14,7 @@
 
 .imageContainer {
   width: 340px;
-  height: 380px;
+  /* height: 630px; */
   position: relative;
   display: flex;
   flex-direction: column;
@@ -26,7 +26,7 @@
 
 .clientImage {
   width: 100%;
-  height: 330px;
+  height: 555px;
   border-radius: 10px;
   object-fit: cover;
   object-position: top;
@@ -137,10 +137,42 @@
 
   .imageContainer {
     width: 270px;
+    height: 570px;
+  }
+
+  .clientImage {
+    height: 495px;
   }
 
   .playButton{
     top: 42%;
+  }
+
+}
+
+@media (width < 992px) {
+
+  .imageContainer {
+    width: 300px;
+    height: 525px;
+  }
+
+  .clientImage {
+    height: 450px;
+  }
+
+}
+
+@media (width < 768px) {
+
+  .imageContainer {
+    width: 100%;
+    max-width: 300px;
+    height: 480px;
+  }
+
+  .clientImage {
+    height: 405px;
   }
 
 }
