@@ -6,7 +6,7 @@
   left: 0;
   background: rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(15px);
-  z-index: 99;
+  z-index: 3000;
 }
 
 .videoBg {
@@ -27,6 +27,7 @@
   left: 50%;
   background-color: #fff;
   transform: translate(-50%, -50%);
+  z-index: 3001;
 }
 
 .videoWrapper {

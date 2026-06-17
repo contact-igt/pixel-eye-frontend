@@ -3,7 +3,7 @@ import { HomeData } from "@/constant/Home";
 import { DynamicIcon } from "lucide-react/dynamic";
 import Image from "next/image";
 
-const Footer = () => {
+const Footer = ({ onOpenContact }) => {
   // Removed mounted state to avoid hydration mismatch
   return (
     <footer className={styles.footerWrapper}>
@@ -33,6 +33,7 @@ const Footer = () => {
               <a
                 href="https://www.pixeleyehospitals.com/about-hospital.html"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 Read More ...
               </a>
@@ -106,7 +107,15 @@ const Footer = () => {
               <div
                 className={`${styles.numbertext} d-flex align-items-center gap-2  my-4`}
               >
-                <a href={HomeData?.footer?.number1href ?? ""}>
+                <a
+                  href={HomeData?.footer?.number1href ?? ""}
+                  onClick={(event) => {
+                    if (onOpenContact) {
+                      event.preventDefault();
+                      onOpenContact();
+                    }
+                  }}
+                >
                   {HomeData?.footer?.number1 ?? ""}
                 </a>
                 {/* <a href={HomeData?.footer?.number2href}>
@@ -122,7 +131,15 @@ const Footer = () => {
               <div
                 className={`${styles.emailtext} d-flex align-items-center gap-2 `}
               >
-                <a href={HomeData?.footer?.emailhref}>
+                <a
+                  href={HomeData?.footer?.emailhref}
+                  onClick={(event) => {
+                    if (onOpenContact) {
+                      event.preventDefault();
+                      onOpenContact();
+                    }
+                  }}
+                >
                   {HomeData?.footer?.email}
                 </a>
               </div>
@@ -146,7 +163,15 @@ const Footer = () => {
               <div
                 className={`${styles.numbertext} d-flex align-items-center gap-2  my-4`}
               >
-                <a href={HomeData?.footer?.number1href ?? ""}>
+                <a
+                  href={HomeData?.footer?.number1href ?? ""}
+                  onClick={(event) => {
+                    if (onOpenContact) {
+                      event.preventDefault();
+                      onOpenContact();
+                    }
+                  }}
+                >
                   {HomeData?.footer?.number1 ?? ""}
                 </a>
                 {/* <a href={HomeData?.footer?.number2href}>
@@ -162,7 +187,15 @@ const Footer = () => {
               <div
                 className={`${styles.emailtext} d-flex align-items-center gap-2 `}
               >
-                <a href={HomeData?.footer?.emailhref}>
+                <a
+                  href={HomeData?.footer?.emailhref}
+                  onClick={(event) => {
+                    if (onOpenContact) {
+                      event.preventDefault();
+                      onOpenContact();
+                    }
+                  }}
+                >
                   {HomeData?.footer?.email}
                 </a>
               </div>

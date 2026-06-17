@@ -3,7 +3,9 @@ import styles from "./styles.module.css";
 import React, { useState, useRef, useEffect } from "react";
 import { DynamicIcon } from "lucide-react/dynamic";
 
-const Navlinks = () => {
+const ABOUT_HOSPITAL_URL = "https://www.pixeleyehospitals.com/about-hospital.html";
+
+const Navlinks = ({ onOpenContact }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServiceDropdownOpen, setIsServiceDropdownOpen] = useState(false);
   const [isMobileServiceOpen, setIsMobileServiceOpen] = useState(false);
@@ -21,9 +23,9 @@ const Navlinks = () => {
 
   const links = [
     { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
+    { href: ABOUT_HOSPITAL_URL, label: "About", external: true },
     { href: "", label: "Service", dropdown: services },
-    { href: "/contacts", label: "Contacts" },
+    { label: "Contacts", action: "contact" },
   ];
 
   useEffect(() => {
@@ -49,7 +51,22 @@ const Navlinks = () => {
                 onMouseLeave={() => link.dropdown && setIsServiceDropdownOpen(false)}
               >
                 {link.href ? (
-                  <Link href={link.href} className={styles.navLink}>{link.label}</Link>
+                  <Link
+                    href={link.href}
+                    className={styles.navLink}
+                    target={link.external ? "_blank" : undefined}
+                    rel={link.external ? "noopener noreferrer" : undefined}
+                  >
+                    {link.label}
+                  </Link>
+                ) : link.action === "contact" ? (
+                  <button
+                    className={styles.navLink}
+                    onClick={() => onOpenContact?.()}
+                    type="button"
+                  >
+                    {link.label}
+                  </button>
                 ) : (
                   <span className={styles.navLink}>{link.label}</span>
                 )}
@@ -105,10 +122,25 @@ const Navlinks = () => {
                   <Link
                     href={link.href}
                     className={styles.navLink}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    target={link.external ? "_blank" : undefined}
+                    rel={link.external ? "noopener noreferrer" : undefined}
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                    }}
                   >
                     {link.label}
                   </Link>
+                ) : link.action === "contact" ? (
+                  <button
+                    className={styles.navLink}
+                    onClick={() => {
+                      onOpenContact?.();
+                      setIsMobileMenuOpen(false);
+                    }}
+                    type="button"
+                  >
+                    {link.label}
+                  </button>
                 ) : (
                   <span
                     className={styles.navLink}

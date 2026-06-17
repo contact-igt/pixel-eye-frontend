@@ -3,11 +3,11 @@ import TopHeader from "../TopHeader";
 import SubHeader from "../SubHeader";
 import styles from "./styles.module.css";
 
-const Header = ({ handleTogglecontactForm }) => {
+const Header = ({ handleTogglecontactForm, onOpenContact }) => {
   return (
     <header className={styles.headerWrapper}>
       <TopHeader />
-      <SubHeader handleTogglecontactForm={handleTogglecontactForm} />
+      <SubHeader handleTogglecontactForm={handleTogglecontactForm} onOpenContact={onOpenContact} />
     </header>
   );
 };
