@@ -198,7 +198,7 @@ export const HomeData = {
         title: "Squint Correction (Strabismus Surgery)",
         description:
           "Restore natural eye alignment and confidence with expert squint correction. Our specialists use minimally invasive techniques to improve vision, depth perception, and eye coordination.",
-        image: "/assets/squintService1.jpg",
+        image: "/assets/squintService1.JPG",
         link: "https://squinteyes.pixeleyehospitals.com/",
         newlyLaunched: false,
       },
@@ -207,7 +207,7 @@ export const HomeData = {
         title: "Glaucoma Treatment",
         description:
           "Protect your vision with early detection and advanced glaucoma care. We offer laser, medication, and microsurgical options to control eye pressure and prevent optic nerve damage.",
-        image: "/assets/glaucomaService1.jpg",
+        image: "/assets/glaucomaService1.JPG",
         link: "https://glaucoma.pixeleyehospitals.com/",
         newlyLaunched: false,
       },
@@ -216,7 +216,7 @@ export const HomeData = {
         title: "Retina",
         description:
           "Retina treatments include advanced procedures such as intravitreal injections, laser therapy, and vitrectomy surgery that help manage retinal diseases like diabetic retinopathy, retinal detachment, and macular degeneration.",
-        image: "/assets/retina1.jpg",
+        image: "/assets/retina1.JPG",
         link: "https://retina.pixeleyehospitals.com/",
         newlyLaunched: false,
       },
