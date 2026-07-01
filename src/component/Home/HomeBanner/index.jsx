@@ -115,8 +115,8 @@ const HomeBanner = ({ data, handleScrollToAddress }) => {
         },
       );
       await emailjs.send(
-        "service_wiw9jr5",
-        "template_gr9dlqd",
+        "service_9ka2q7j",
+        "template_88icron",
         {
           patient_name: formData.PatientName,
           mobile_number: formData.MobileNumber,
@@ -125,7 +125,7 @@ const HomeBanner = ({ data, handleScrollToAddress }) => {
           from_name: "Pixel Eye Hospitals",
           from_email: "info@pixeleyehospitals.com",
         },
-        "4yBxE-kzbe7EuZqFh",
+        "CNcEBk9-YnTm2Zwor",
       );
       setLoading(false);
       window.location.href = "/thank-you";
