@@ -41,13 +41,13 @@ const HomeBanner = ({ data, handleScrollToAddress }) => {
     const normalizedValue =
       name === "MobileNumber" ? value.replace(/\D/g, "").slice(0, 10) : value;
 
-    setFormData({ ...formData, [name]: normalizedValue });
-    setErrors({ ...errors, [name]: "" });
+    setFormData((prev) => ({ ...prev, [name]: normalizedValue }));
+    setErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
   const handleServiceChange = (value) => {
-    setFormData({ ...formData, Service: value });
-    setErrors({ ...errors, Service: "" });
+    setFormData((prev) => ({ ...prev, Service: value }));
+    setErrors((prev) => ({ ...prev, Service: "" }));
   };
 
   const validate = () => {
