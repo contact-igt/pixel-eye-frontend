@@ -1,10 +1,28 @@
 export const serviceOptions = [
-  "Cataract Eye Surgery",
-  "LASIK & Refractive Surgery",
-  "Squint Correction (Strabismus Surgery)",
-  "Glaucoma Treatment",
-  "Retina",
-  "Others"
+  {
+    label: "Cataract Eye Surgery",
+    value: "Cataract",
+  },
+  {
+    label: "LASIK & Refractive Surgery",
+    value: "Lasik",
+  },
+  {
+    label: "Squint Correction (Strabismus Surgery)",
+    value: "Squint",
+  },
+  {
+    label: "Glaucoma Treatment",
+    value: "Glaucoma",
+  },
+  {
+    label: "Retina",
+    value: "Retina",
+  },
+  {
+    label: "Others",
+    value: "Others",
+  },
 ];
 
 export const HomeData = {

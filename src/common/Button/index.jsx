@@ -19,6 +19,7 @@ const Button = ({
   target,
   suffix,
   hideTextOnMobile,
+  type = "button",
 }) => {
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
@@ -38,7 +39,7 @@ const Button = ({
       {isimg && imgicon && !suffix && (
         <Image src={imgicon} width={24} height={24} alt={`${name}-icon`} />
       )}
-      {name && <h6 className={`m-0 ${hideTextOnMobile ? styles.hideOnMobile : ''}`}>{name}</h6>}
+      {name && <h6 className={`m-0 ${hideTextOnMobile ? styles.hideOnMobile : ""}`}>{name}</h6>}
       {isimg && imgicon && suffix && (
         <Image src={imgicon} width={20} height={20} alt={`${name}-icon`} />
       )}
@@ -51,9 +52,10 @@ const Button = ({
       href={href}
       target={target}
       rel="noopener noreferrer"
-      className={`btn text-decoration-none`}
+      className="btn text-decoration-none"
     >
       <button
+        type="button"
         onClick={href ? undefined : handleTogglecontactForm}
         className={`btn text-center d-flex align-items-center justify-content-center gap-2 ${styles.button} ${!name ? "rounded-circle " : ""} w-100 h-100`}
         style={buttonStyle}
@@ -64,6 +66,7 @@ const Button = ({
     </a>
   ) : (
     <button
+      type={type}
       className={`btn text-center d-flex align-items-center justify-content-center gap-2 ${styles.button}`}
       onClick={handleTogglecontactForm}
       style={buttonStyle}

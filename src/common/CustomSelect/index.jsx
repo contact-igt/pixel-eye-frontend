@@ -4,6 +4,7 @@ import styles from "./styles.module.css";
 const CustomSelect = ({ options, value, onChange, placeholder, error }) => {
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
+  const selectedOption = options.find((option) => option.value === value);
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -16,7 +17,7 @@ const CustomSelect = ({ options, value, onChange, placeholder, error }) => {
   }, []);
 
   const handleSelect = (option) => {
-    onChange(option);
+    onChange(option.value);
     setOpen(false);
   };
 
@@ -28,7 +29,7 @@ const CustomSelect = ({ options, value, onChange, placeholder, error }) => {
         onClick={() => setOpen((o) => !o)}
       >
         <span className={value ? styles.selected : styles.placeholder}>
-          {value || placeholder}
+          {selectedOption?.label || placeholder}
         </span>
         <svg
           className={`${styles.chevron} ${open ? styles.chevronUp : ""}`}
@@ -49,11 +50,11 @@ const CustomSelect = ({ options, value, onChange, placeholder, error }) => {
         <ul className={styles.dropdown}>
           {options.map((option) => (
             <li
-              key={option}
-              className={`${styles.option} ${value === option ? styles.optionActive : ""}`}
+              key={option.value}
+              className={`${styles.option} ${value === option.value ? styles.optionActive : ""}`}
               onClick={() => handleSelect(option)}
             >
-              {option}
+              {option.label}
             </li>
           ))}
         </ul>
