@@ -4,6 +4,7 @@ import styles from "./styles.module.css";
 import emailjs from "emailjs-com";
 import { serviceOptions } from "@/constant/Home";
 import dynamic from "next/dynamic";
+import { submitWebsiteLead } from "@/lib/leadSubmission";
 
 const CustomSelect = dynamic(() => import("@/common/CustomSelect"), {
   ssr: false,
@@ -25,7 +26,10 @@ const Form = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    const normalizedValue =
+      name === "MobileNumber" ? value.replace(/\D/g, "").slice(0, 10) : value;
+
+    setFormData({ ...formData, [name]: normalizedValue });
     setErrors({ ...errors, [name]: "" });
   };
 
@@ -66,55 +70,13 @@ const Form = () => {
 
     try {
       setLoading(true);
-      const ipResponse = await fetch("https://api.ipify.org?format=json");
-      const ipData = await ipResponse.json();
+      setSubmitError("");
 
-      await fetch(
-        "https://www.privyr.com/api/v1/incoming-leads/0vZfjMQw/xKtkqD5A",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            name: formData?.PatientName,
-            phone: "+91" + formData.MobileNumber,
-            display_name: formData?.PatientName,
-            source: "Sanathnagar Landing Page",
-          }),
-        },
-      );
+      await submitWebsiteLead({
+        formData,
+        emailjs,
+      });
 
-      const newFormData = {
-        PatientName: formData.PatientName,
-        MobileNumber: formData.MobileNumber,
-        Service: formData.Service,
-        IP_Address: ipData.ip,
-        utm_source: localStorage.getItem("utm_source"),
-      };
-      console.log("newFormData", newFormData);
-      await fetch(
-        "https://script.google.com/macros/s/AKfycbxNRDdmbe0CV8xYgZrXmYE1Dwzab4p5La8TfZQZJtxdR0L8u1bQk0xRu3qn7Quojl8F/exec",
-        {
-          method: "POST",
-          mode: "no-cors",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: new URLSearchParams(newFormData).toString(),
-        },
-      );
-      await emailjs.send(
-        "service_9ka2q7j",
-        "template_88icron",
-        {
-          patient_name: formData.PatientName,
-          mobile_number: formData.MobileNumber,
-          service_name: formData.Service,
-          email_subject: "New Appointment Inquiry - Pixel Eye Hospitals",
-          from_name: "Pixel Eye Hospitals",
-          from_email: "info@pixeleyehospitals.com",
-        },
-        "CNcEBk9-YnTm2Zwor",
-      );
       setLoading(false);
       window.location.href = "/thank-you";
     } catch (error) {
@@ -141,6 +103,7 @@ const Form = () => {
             suppressHydrationWarning
             type="text"
             name="PatientName"
+            value={formData.PatientName}
             onChange={handleChange}
             className={`form-control rounded-3 py-3${errors.PatientName ? " is-invalid" : ""}`}
             placeholder="Patient Name"
@@ -160,6 +123,9 @@ const Form = () => {
               suppressHydrationWarning
               name="MobileNumber"
               type="tel"
+              inputMode="numeric"
+              maxLength={10}
+              value={formData.MobileNumber}
               onChange={handleChange}
               className={`form-control border-start-0 rounded-end-3${errors.MobileNumber ? " is-invalid" : ""}`}
               placeholder="Mobile Number"
@@ -187,6 +153,7 @@ const Form = () => {
         ) : null}
         <div className="d-grid mt-2">
           <Button
+            type="submit"
             disabled={loading}
             name={loading ? "Booking..." : "Book Now"}
             bgcolor="#f5a623"
