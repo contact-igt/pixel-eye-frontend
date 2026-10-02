@@ -99,7 +99,7 @@ export const HomeData = {
           "I was diagnosed with cataracts about a year ago and was advised to have surgery within six months to a year. On my friends’ recommendation, I visited Dr. Poojita, who had successfully operated on their eyes. The surgery took only about 15 minutes and was completely smooth. After using the prescribed eye drops, my vision became clear, and I no longer need reading glasses. It feels like a rebirth for my eyesight—I’m truly grateful for the excellent care and the clarity I’ve regained.",
         image: "/assets/testimonialImage1.png",
         videoUrl:
-          "https://res.cloudinary.com/dnttl4dnz/video/upload/v1763098222/catract7_qf81jw.mp4",
+    "https://res.cloudinary.com/fdhst4av/video/upload/v1790933728/If_you_are_experiencing_complications_and_require_top-quality_cataract_surgery_in_Hyderabad_loo.mp4",
       },
       {
         id: 2,
@@ -109,7 +109,7 @@ export const HomeData = {
           "I came to Hyderabad from South Sudan with my mother for her eye treatment at Pixel Hospitals. From the moment we arrived, the staff welcomed us with kindness and humility, making us feel at home. Dr. Pja explained every detail about the cataract surgery clearly and patiently. The cost was very affordable, even though we had financial limitations. After the surgery, my mother’s vision improved greatly—she can see clearly again. We are truly thankful to Pixel Hospitals and Dr. Pja for their excellent care. I highly recommend this hospital to anyone looking for quality eye treatment in Hyderabad.",
         imageSrc: "/assets/testimonialImage2.png",
         videoUrl:
-          "https://res.cloudinary.com/dnttl4dnz/video/upload/v1764078537/cataract_testimonal_boazlg.mp4",
+          "https://res.cloudinary.com/fdhst4av/video/upload/v1790933697/vidssave.com_Life-Changing_Eye_Care_at_Pixel_Hospitals_Hyderabad___Gabriel_s_Testimonial_720P.mp4",
       },
       {
         id: 3,
@@ -118,7 +118,7 @@ export const HomeData = {
         testimonial:
           "I had been struggling with health issues for more than 40 years. After receiving treatment, I experienced a remarkable improvement — it truly feels like a new beginning. The doctors and staff showed great care and support throughout my recovery journey. Today, I feel healthier, more confident, and grateful for the positive changes this treatment has brought to my life.",
         videoUrl:
-          "https://res.cloudinary.com/dnttl4dnz/video/upload/v1763040200/squint4_f18ipn.mp4",
+          "https://res.cloudinary.com/fdhst4av/video/upload/v1790930707/vidssave.com_Squint_eye_surgery_telugu___%E0%B0%AE%E0%B1%86%E0%B0%B2%E0%B1%8D%E0%B0%B2%E0%B0%95%E0%B0%A8%E0%B1%8D%E0%B0%A8%E0%B1%81___Patient_Testimonial___eye_care_tips___Dr_Abdul_Rasheed_720P.mp4",
         imageSrc: "/assets/testimonialImage3.png",
       },
       {
@@ -128,7 +128,7 @@ export const HomeData = {
         testimonial:
           "I had been wearing glasses since my school days — nearly 15 years of constant dependency from morning till night. My power had increased to -6.5D, and I always wished I could see clearly without glasses. After following Dr. Abdul Rasheed’s videos on YouTube, I decided to visit Pixel Eye Hospital. Dr. Rasheed and his team guided me through every step and suggested SMILE surgery.",
         videoUrl:
-          "https://res.cloudinary.com/dnttl4dnz/video/upload/v1763040179/lasik3_e50rle.mp4",
+          "https://res.cloudinary.com/fdhst4av/video/upload/v1790933767/SMILE-eye-SURGERY-SnapYT.App.mp4",
         imageSrc: "/assets/testimonialImage4.png",
       },
     ],
