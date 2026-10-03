@@ -1,10 +1,14 @@
 const WEBSITE_LEADS_ENDPOINT = "/api/v1/pixeleye/website-leads/register";
+const SOURCE_KEY = "sanathnagar";
+// Fallback only: used when the backend API call fails.
 const GOOGLE_SHEET_ENDPOINT =
-  "https://script.google.com/macros/s/AKfycbxNRDdmbe0CV8xYgZrXmYE1Dwzab4p5La8TfZQZJtxdR0L8u1bQk0xRu3qn7Quojl8F/exec";
+  "https://script.google.com/macros/s/AKfycbwJQmovbB3jo2d7mEHKf-8bFzfJqoI8f__bKFFJtMm_CCzT9fWIRsVfCYPGdUXBj63Y/exec";
 const PRIVYR_ENDPOINT =
   "https://www.privyr.com/api/v1/incoming-leads/0vZfjMQw/xKtkqD5A";
 
-const getBaseUrl = () => process.env.NEXT_PUBLIC_PIXELEYE_API_BASE_URL;
+// Accept the base URL with or without the /api/v1 suffix.
+const getBaseUrl = () =>
+  process.env.NEXT_PUBLIC_PIXELEYE_API_BASE_URL?.trim().replace(/\/+(api\/v1)?\/*$/, "");
 const getClientKey = () => process.env.NEXT_PUBLIC_PIXELEYE_CLIENT_KEY;
 
 const getUTMSource = () => {
@@ -45,6 +49,7 @@ const registerWebsiteLead = async ({ name, mobileNumber, service, ipAddress, utm
       name,
       mobile_number: mobileNumber,
       service,
+      source_key: SOURCE_KEY,
       ip_address: ipAddress,
       utm_source: utmSource,
     }),
@@ -99,8 +104,14 @@ export const submitWebsiteLead = async ({ formData, emailjs }) => {
     utmSource: getUTMSource(),
   };
 
-  await registerWebsiteLead(payload);
-  await pushLeadToGoogleSheet(payload);
+  // The backend saves the lead and mirrors it to the Google Sheet itself, so
+  // the Apps Script is only called when the backend call fails.
+  try {
+    await registerWebsiteLead(payload);
+  } catch (error) {
+    console.error("Website lead API failed, falling back to Google Apps Script", error);
+    await pushLeadToGoogleSheet(payload);
+  }
 
   const secondaryResults = await Promise.allSettled([
     pushLeadToPrivyr(payload),
