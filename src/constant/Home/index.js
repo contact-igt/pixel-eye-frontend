@@ -85,7 +85,7 @@ export const HomeData = {
       },
     ],
     button1text: "Call Now",
-    button1href: "tel:+917075008561",
+    button1href: "tel:+917075955568",
     button2text: "Book an Appointment",
   },
   testimonialData: {
@@ -244,7 +244,7 @@ export const HomeData = {
     {
       title: "Book an Appointment",
       icon: "calendar-clock",
-      description: "+917075008561",
+      description: "+917075955568",
       link: "",
     },
     {
@@ -267,8 +267,8 @@ export const HomeData = {
       "TRT 1190, Ground Floor, Bansal Residency, Beside Sanath Nagar Police Station, Sanath Nagar main road, Hyderabad, Telangana 500018",
     address2:
       "Fourth Floor, Commercial Complex PNR Highnest, 1-2-22/PNRHN/3/B, Dharma Reddy Colony Phase II, Kukatpally Housing Board Colony, Hyderabad, Telangana 500085",
-    number1: "070750 08561",
-    number1href: "tel:070750 08561",
+    number1: "7075955568",
+    number1href: "tel:+917075955568",
     // number2: "",
     // number2href: "",
     email: "info@pixeleyehospitals.com",

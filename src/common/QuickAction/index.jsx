@@ -17,7 +17,7 @@ const QuickAction = ({ handleTogglecontactForm }) => {
     >
       {/* WhatsApp */}
       <a
-        href="https://wa.me/917075008561"
+        href="https://wa.me/917075955568"
         target="_blank"
         rel="noopener noreferrer"
         className={`${styles.actionBtn}`}
@@ -39,7 +39,7 @@ const QuickAction = ({ handleTogglecontactForm }) => {
 
       {/* Call */}
       <a
-        href="tel:+917075008561"
+        href="tel:+917075955568"
         className={`${styles.actionBtn}`}
       >
         {mounted && <DynamicIcon name="phone" color="#21a179" size={25} />}

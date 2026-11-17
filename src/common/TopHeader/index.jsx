@@ -22,8 +22,8 @@ const TopHeader = () => {
         <div className={styles.buttonGroup}>
           <Button
             isicon={true}
-            href={"tel:+917075008561"}
-            name="Call 7075008561"
+            href={"tel:+917075955568"}
+            name="Call 7075955568"
             bgcolor="#153b56"
             txtcolor="#fff"
             border="1px solid #153b56"
@@ -32,7 +32,7 @@ const TopHeader = () => {
             hideTextOnMobile={true}
           />
           <Button
-            href={"https://wa.me/917075008561"}
+            href={"https://wa.me/917075955568"}
             name="Chat on WhatsApp"
             bgcolor="#153b56"
             txtcolor="#ffffff"
