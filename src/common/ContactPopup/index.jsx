@@ -64,7 +64,7 @@ export const ContactPopup = ({ open, onClose }) => {
             <div className={styles.infoText}>
               <h4>Phone</h4>
               <p>
-                <a href="tel:+917075008561">+91 70750 08561</a>
+                <a href="tel:+917075955568">+91 70759 55568</a>
               </p>
             </div>
           </div>
