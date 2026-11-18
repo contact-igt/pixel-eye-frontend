@@ -38,7 +38,7 @@ export const HomeData = {
     stat3value: "10",
     stat3label: "Doctors",
     appointmentText: "To book an appointment",
-    image: "/assets/bannerImage3.jpg",
+    image: "/assets/bannerImage3.JPG",
   },
 
   excellenceData: {
